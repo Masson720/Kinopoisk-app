@@ -1,0 +1,21 @@
+.background {
+  width: 100vw;
+  height: 80px;
+  background: black;
+
+  .header {
+    width: 1400px;
+    margin: 0 auto;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  color: white;
+  font-size: 37px;
+  font-weight: bold;
+}
+

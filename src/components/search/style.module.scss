@@ -1,0 +1,19 @@
+.body {
+  width: 370px;
+
+  .input {
+    width: 370px;
+    height: 30px;
+    border: none;
+    border-radius: 7px;
+    font-size: 17px;
+    padding: 5px;
+    background: #343131;
+    color: white;
+    &:focus {
+      background: white;
+      color: black;
+    }
+  }
+}
+
