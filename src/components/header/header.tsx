@@ -2,7 +2,7 @@ import s from './style.module.scss'
 import {Search} from "../search/search";
 
 export const Header = () => {
-    return <>
+    return <div className={s.material}>
         <div className={s.background}>
             <div className={s.header}>
                 <span className={s.logo}>KINOPOISK</span>
@@ -10,5 +10,5 @@ export const Header = () => {
             </div>
 
         </div>
-    </>
+    </div>
 }

@@ -22,6 +22,7 @@ export const Search = () => {
     return <>
         <div className={s.body}>
             <input className={s.input}
+                   placeholder='Search...'
                    onBlur={()=> setMenuStatus(false)}
                    onChange={e=> submit(e)}
             />

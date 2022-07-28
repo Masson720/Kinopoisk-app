@@ -1,7 +1,14 @@
+.material {
+  height: 80px;
+}
+
 .background {
   width: 100vw;
   height: 80px;
   background: black;
+  position: fixed;
+  margin-bottom: 80px;
+  z-index: 5;
 
   .header {
     width: 1400px;

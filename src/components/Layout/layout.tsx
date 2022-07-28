@@ -1,5 +1,6 @@
 import s from './style.module.scss'
 import {Header} from "../header/header";
+import {Footer} from "../footer/footer";
 
 export const Layout = ({children}) => {
     return <>
@@ -7,5 +8,6 @@ export const Layout = ({children}) => {
             <div>
                 {children}
             </div>
+        <Footer/>
         </>
 }
