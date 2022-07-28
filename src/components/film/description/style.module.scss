@@ -1,16 +1,15 @@
-.body {
+.main {
   width: 1350px;
   height: 700px;
   margin: 0 auto;
   margin-top: 50px;
   display: flex;
-  background: gainsboro;
 
   .poster {
     width: 300px;
     height: 480px;
     border-radius: 5px;
-    margin-right: 30px;
+    margin-right: 50px;
   }
 
   h1 {
@@ -34,19 +33,36 @@
     ul {
 
       li {
-        margin: 15px 0;
+        margin: 23px 0;
         display: flex;
 
+        span {
+          font-size: 13px;
+        }
 
         .property {
           display: block;
+          width: 240px;
+        }
+
+        .meaning {
+          display: block;
           width: 330px;
         }
-        .meaning {
 
+        .pg {
+          width: 26px;
+          height: 21px;
+          border: 1px solid #adadad;
+          color: #adadad;
         }
       }
     }
   }
+}
+
+.description {
+  width: 1350px;
+  height: 400px;
 }
 
