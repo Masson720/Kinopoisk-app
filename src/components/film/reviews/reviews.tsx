@@ -1,4 +1,6 @@
 import s from './style.module.scss';
+import {Rating} from "./ratings/ratings";
+import {Item} from "./item/item";
 
 export const Reviews = () => {
     return <>
@@ -6,29 +8,11 @@ export const Reviews = () => {
             <h1>Reviews</h1>
             <div className={s.rewiewBlock}>
                 <div className={s.reviews}>
-
+                    <Item/>
+                    <Item/>
+                    <button className={s.showButton}>Show more</button>
                 </div>
-                <div className={s.ratingsBlock}>
-                    <div>
-                        <h1>132</h1>
-                        <span>All</span>
-                    </div>
-                    <div>
-                        <div>
-                            <h1>132</h1>
-                            <span>100.0%</span>
-                        </div>
-                        <span>Positive</span>
-                    </div>
-                    <div>
-                        <h1>0</h1>
-                        <span>Negative</span>
-                    </div>
-                    <div>
-                        <h1>0</h1>
-                        <span>Neutral</span>
-                    </div>
-                </div>
+                <Rating/>
             </div>
         </div>
     </>

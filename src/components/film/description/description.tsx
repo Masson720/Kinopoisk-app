@@ -4,7 +4,14 @@ import {InfoBlock} from "./infoBlock/InfoBlock";
 export const Description = () => {
     return <>
         <div className={s.main}>
-            <img className={s.poster} src='https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/cf340494-877d-4e48-bdda-96e8c9a7d0f1/300x'/>
+            <div>
+                <div className={s.rating}>
+                    7.9
+                </div>
+                <img className={s.poster} src='https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/cf340494-877d-4e48-bdda-96e8c9a7d0f1/300x'/>
+
+            </div>
+
             <div className={s.info}>
                 <h1>Бэтмен (2022)</h1>
                 <span className={s.engTitle}>The Batman</span>

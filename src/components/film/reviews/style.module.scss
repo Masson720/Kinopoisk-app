@@ -5,8 +5,7 @@
 
   h1 {
     font-size: 30px;
-    padding: 9px;
-    margin-bottom: 22px;
+    padding: 0 9px;
   }
 }
 
@@ -15,15 +14,28 @@
   margin: 10px;
 
 
-  .reviews {
-    background: #01de01;
-    width: 850px;
-    height: 800px;
-  }
-
-
   .ratingsBlock{
     width: 200px;
     height: 500px;
+  }
+}
+
+.reviews {
+  width: 850px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .showButton {
+    width: 400px;
+    height: 35px;
+    cursor: pointer;
+    border: none;
+    font-size: 17px;
+    font-weight: bold;
+    background: #212fa1;
+    border-radius: 6px;
+    color: white;
+    margin-bottom: 40px;
   }
 }
