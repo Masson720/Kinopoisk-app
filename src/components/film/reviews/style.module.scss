@@ -1,0 +1,29 @@
+.body {
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 45px;
+
+  h1 {
+    font-size: 30px;
+    padding: 9px;
+    margin-bottom: 22px;
+  }
+}
+
+.rewiewBlock {
+  display: flex;
+  margin: 10px;
+
+
+  .reviews {
+    background: #01de01;
+    width: 850px;
+    height: 800px;
+  }
+
+
+  .ratingsBlock{
+    width: 200px;
+    height: 500px;
+  }
+}

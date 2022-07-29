@@ -25,9 +25,12 @@ export const Slider = () => {
 
     return <>
         <div className={s.body}>
-            <button className={s.button + ' ' + s.left}
-            onClick={() => switcher(true)}
-            >{'>'}</button>
+            <div className={s.borderButton}
+                 onClick={() => switcher(true)}
+            >
+                <button className={s.button + ' ' + s.left}>{'>'}</button>
+            </div>
+
             <div className={s.slider} >
                 <div className={s.sliderLine} style={move}>
                     <img src={'https://avatars.mds.yandex.net/i?id=2a0000018240d5a608c1066606b949ef8576-1735627-fast-images&n=13&exp=1'} className={s.item}></img>
@@ -43,9 +46,11 @@ export const Slider = () => {
                 </div>
 
             </div>
-            <button className={s.button + ' ' + s.right}
-                    onClick={() => switcher(false)}
-            >{'<'}</button>
+            <div className={s.borderButton}
+                 onClick={() => switcher(false)}
+            >
+                <button className={s.button + ' ' + s.right}>{'<'}</button>
+            </div>
         </div>
     </>
 }

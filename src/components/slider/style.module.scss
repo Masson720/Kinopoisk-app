@@ -1,26 +1,32 @@
 .body {
-  width: 1300px;
+  width: 1200px;
   height: 300px;
   margin: 0 auto;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   .slider {
+    width: 1190px;
     overflow: hidden;
     margin: 0 auto;
-    width: 1200px;
     height: 300px;
     background: white;
+    position: absolute;
   }
 
   .sliderLine {
-    position: relative;
-    right: 0px;
     display: flex;
     transition: translate;
     transition-property: transform;
     transition-duration: .3s;
     transition-timing-function: ease-in-out;
+  }
+
+  .borderButton {
+    width: 50px;
+    height: 50px;
+    z-index: 1;
   }
 
   .button {
@@ -29,24 +35,24 @@
     font-size: 30px;
     font-weight: bold;
     border-radius: 30px;
-    z-index: 1;
+    margin: 0;
     background: white;
     border: none;
-    box-shadow: 1px 0px 3px 1px #5f5e5e;
+    box-shadow: 1px 0 3px 1px #5f5e5e;
   }
 
   .left {
-    transform: translate(50%);
+    transform: translate(-20%);
     &:hover {
-      transform: translate(65%);
+      transform: translate(10%);
       transition-duration: .3s;
     }
   }
 
   .right {
-    transform: translate(-50%);
+    transform: translate(20%);
     &:hover {
-      transform: translate(-65%);
+      transform: translate(-10%);
       transition-duration: .3s;
     }
   }

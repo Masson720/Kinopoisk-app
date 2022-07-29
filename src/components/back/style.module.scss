@@ -1,0 +1,20 @@
+.back {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  background: #01de01;
+  left: 50px;
+  top: 70%;
+  cursor: pointer;
+  border-radius: 13px;
+  color: white;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.2;
+
+  &:hover {
+    opacity: 1;
+  }
+}

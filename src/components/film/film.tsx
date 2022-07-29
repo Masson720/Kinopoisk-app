@@ -1,18 +1,15 @@
 import s from './style.module.scss';
-// @ts-ignore
-import Link from "next/link";
+import {Back} from '../back/back'
 import {Description} from "./description/description";
+import {Reviews} from "./reviews/reviews";
 
 
 const Film = () => {
 
     return <>
-        <Link href='/'>
-            <div className={s.back}>
-                {'<'}
-            </div>
-        </Link>
+        <Back/>
         <Description/>
+        <Reviews/>
     </>
 }
 
