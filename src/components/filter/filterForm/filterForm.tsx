@@ -1,19 +1,19 @@
 import s from './style.module.scss';
-import {useState} from "react";
+import React, {useState} from "react";
+import {Rating} from "./components/rating/rating";
+import {Genre} from "./components/genre/genre";
+import {Years} from "./components/years/years";
+import {Release} from "./components/release/release";
 
 export const FilterForm = () => {
 
+
     return <>
-        <div className={s.rating}>
-            <h1 className={s.title}>Rating</h1>
-            <div className={s.ratingSelectors}>
-                <div className={s.item}>
-                    <input className={s.text} type="text"/>
-                </div>
-                <div className={s.item}>
-                    <input className={s.text} type="text"/>
-                </div>
-            </div>
+        <div className={s.body}>
+            <Rating/>
+            <Years/>
+            <Genre/>
+            <Release/>
         </div>
     </>
 }
