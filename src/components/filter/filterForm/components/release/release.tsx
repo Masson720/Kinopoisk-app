@@ -5,16 +5,16 @@ export const Release = () => {
         <div className={s.body}>
             <h1 className={s.title}>Release</h1>
             <div>
-                <label htmlFor="">
-                    <input className={s.checkBox} type='checkbox'/>
+                <label  className={s.label}>
+                    <input className={s.radio} type='radio' name='release'/>
+                    <span className={s.text}>New</span>
                 </label>
-                <span>New</span>
             </div>
             <div>
-                <label htmlFor="">
-                    <input className={s.checkBox} type='checkbox'/>
+                <label className={s.label}>
+                    <input className={s.radio} type='radio' name='release'/>
+                    <span className={s.text}>Old</span>
                 </label>
-                <span>Old</span>
             </div>
         </div>
     </>
