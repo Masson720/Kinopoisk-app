@@ -1,0 +1,42 @@
+.body {
+  width: 950px;
+  height: 200px;
+  border-top: 1px solid #c9c9c9;
+  box-sizing: border-box;
+  display: flex;
+
+  &:hover {
+    border-color: white;
+    box-shadow: 1px 1px 20px #dcdcd1;
+  }
+}
+
+.title {
+  font-size: 19px;
+  margin-bottom: 5px;
+
+}
+
+.poster {
+  width: 100px;
+  height: 130px;
+  margin: 30px;
+}
+
+.info {
+  width: 600px;
+  margin: 30px 0;
+}
+
+.description {
+  margin: 5px 0;
+  font-size: 13px;
+  color: grey;
+}
+
+.rating {
+  font-size: 20px;
+  font-weight: bold;
+  color: #02c702;
+  margin: 25px;
+}

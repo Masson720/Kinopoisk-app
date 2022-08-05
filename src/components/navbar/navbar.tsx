@@ -15,21 +15,26 @@ export const Navbar = ({children}) => {
                     </Link>
                 </li>
                 <li>
-                    <Link href='/persons'>
-                        <a>
-                            Persons
-                        </a>
-                    </Link>
-                </li>
-                <li>
                     <Link href='/films'>
                         <a>
                             Films
                         </a>
                     </Link>
                 </li>
-                <li>Cartoons</li>
-                <li>Series</li>
+                <li>
+                    <Link href='/cartoons'>
+                        <a>
+                            Cartoons
+                        </a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href='/series'>
+                        <a>
+                            Series
+                        </a>
+                    </Link>
+                </li>
             </ul>
             <div className={s.children}>{children}</div>
         </div>
