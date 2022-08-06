@@ -1,0 +1,45 @@
+.body {
+  width: 1300px;
+  margin: 0 auto;
+
+  .buttons {
+    margin: 0 35px;
+  }
+
+  button {
+    background: white;
+    border: none;
+    font-size: 19px;
+    margin: 10px 20px 0px 25px;
+    cursor: pointer;
+    border-bottom: 2px solid white;
+  }
+
+  .upper {
+    width: 1250px;
+    margin: 0 auto;
+    height: 1px;
+    border-bottom: 1px solid #f3f3f3;
+  }
+
+  .buttonOn {
+    border-bottom: 2px solid #3e6dfa;
+    transition: border-bottom .4s;
+  }
+
+  .info {
+    width: 1300px;
+    padding: 10px 50px;
+
+    .about {
+      padding: 10px;
+    }
+  }
+}
+
+.moreFilms {
+
+  h1{
+    padding: 10px 60px;
+  }
+}

@@ -1,5 +1,5 @@
 import s from './style.module.scss';
-import {InfoBlock} from "./infoBlock/InfoBlock";
+import {InfoBlock} from "../infoBlock/InfoBlock";
 
 export const Description = () => {
     return <>

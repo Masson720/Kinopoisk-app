@@ -1,0 +1,82 @@
+.main {
+  width: 1200px;
+  height: 650px;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+
+  .poster {
+    width: 300px;
+    height: 480px;
+    border-radius: 5px;
+    margin-right: 50px;
+  }
+
+  .rating {
+    width: 40px;
+    height: 30px;
+    background: #02c702;
+    border-radius: 6px;
+    position: absolute;
+    margin: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+  }
+
+  h1 {
+    margin: 30px 20px 5px 0;
+    font-size: 37px;
+  }
+
+  .engTitle {
+    margin: 10px 20px 10px 0;
+    font-size: 14px;
+  }
+
+  h2 {
+    margin: 50px 20px 40px 0;
+  }
+
+  .info {
+    width: 900px;
+    height: 500px;
+
+    ul {
+
+      li {
+        margin: 23px 0;
+        display: flex;
+
+        span {
+          font-size: 13px;
+        }
+
+        .property {
+          display: block;
+          width: 240px;
+        }
+
+        .meaning {
+          display: block;
+          width: 330px;
+        }
+
+        .pg {
+          width: 26px;
+          height: 21px;
+          border: 1px solid #adadad;
+          color: #adadad;
+        }
+      }
+    }
+  }
+}
+
+.description {
+  width: 1350px;
+  height: 400px;
+}
+

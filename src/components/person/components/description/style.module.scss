@@ -12,19 +12,6 @@
     margin-right: 50px;
   }
 
-  .rating {
-    width: 40px;
-    height: 30px;
-    background: #02c702;
-    border-radius: 6px;
-    position: absolute;
-    margin: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bold;
-  }
 
   h1 {
     margin: 30px 20px 5px 0px;
@@ -62,13 +49,6 @@
         .meaning {
           display: block;
           width: 330px;
-        }
-
-        .pg {
-          width: 26px;
-          height: 21px;
-          border: 1px solid #adadad;
-          color: #adadad;
         }
       }
     }

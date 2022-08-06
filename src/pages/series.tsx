@@ -7,8 +7,7 @@ import {FilmsPage} from "../components/UI/filmsPage/filmsPage";
 export default function Films(){
     return <>
         <Layout>
-            <FilmsPage title='Series'/>
-            <Filter>
+            <Filter page='Series'>
                 <ItemsPage/>
             </Filter>
         </Layout>

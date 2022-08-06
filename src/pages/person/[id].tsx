@@ -1,16 +1,12 @@
 import {Layout} from "../../components/Layout/layout";
-import {Navbar} from "../../components/navbar/navbar";
+import {Person} from "../../components/person/person";
 
 
-const Person = () => {
+export default function() {
     return <>
         <Layout>
-            <Navbar>
-                <h1>Алексей Арестович</h1>
-            </Navbar>
+            <Person/>
         </Layout>
 
     </>
 }
-
-export default Person;

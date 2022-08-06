@@ -1,7 +1,7 @@
 import s from './style.module.scss';
 import {Back} from '../back/back'
-import {Description} from "./description/description";
-import {Reviews} from "./reviews/reviews";
+import {Description} from "./components/description/description";
+import {Reviews} from "./components/reviews/reviews";
 
 
 const Film = () => {
