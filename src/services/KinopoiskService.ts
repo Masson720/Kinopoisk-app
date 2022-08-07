@@ -7,7 +7,7 @@ export const kinopoiskAPI = createApi({
     reducerPath: "kinopoiskAPI",
     baseQuery: fetchBaseQuery({baseUrl: API_URL}),
     endpoints: (builder) => ({
-        getTop250: builder.query({
+        getTop: builder.query({
             query: ({query, filters, page}) => {
                 return `movie?${filters.genre}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}
                 &field=rating.kp&${query}&sortField=year&sortType=${filters.sortByRelease}
@@ -16,3 +16,11 @@ export const kinopoiskAPI = createApi({
         })
     })
 })
+
+export const {
+    getTop
+} = kinopoiskAPI.endpoints;
+
+export const {
+    useGetTop
+} = kinopoiskAPI
