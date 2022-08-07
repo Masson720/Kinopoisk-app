@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const store = initialStore();
     const state = store.getState();
     const {filmsLimit, seriesLimit} = state.loadReducer
-    await store.dispatch(getTop().initiate(filmsLimit))
-
+    await store.dispatch(getTop.initiate(filmsLimit))
+    console.log(store.getState().kinopoiskAPI)
     return {props: {initialReduxState: store.getState()}}
 }

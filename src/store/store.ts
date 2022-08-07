@@ -5,7 +5,7 @@ import {useMemo} from "react";
 // @ts-ignore
 import {createWrapper} from "next-redux-wrapper";
 import {loadReducer} from "./reducers/loadReducer";
-
+import {filtersReducer} from "./reducers/filterReducer";
 
 
 let store: AppStoreType
@@ -14,7 +14,9 @@ export const initialStore = (preloadedState = {}) => {
     return configureStore(
         {
             reducer: {
-                loadReducer
+                loadReducer,
+                filtersReducer,
+                [kinopoiskAPI.reducerPath]: kinopoiskAPI.reducer
             },
             preloadedState,
             middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(kinopoiskAPI.middleware)
@@ -34,7 +36,7 @@ export const initializeStore = (preloadedState) => {
     return _store
 }
 
-export const useStore = (initialState: RootState) => {
+export default function useStore(initialState: RootState){
     const store = useMemo(() => initializeStore(initialState), [initialState]);
     return store;
 }

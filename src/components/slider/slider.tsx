@@ -1,10 +1,14 @@
 import s from './style.module.scss';
 import {useState} from "react";
+// @ts-ignore
+import {useSelector} from "react-redux";
 
 
 export const Slider = () => {
     const [move, setMove] = useState({transform: 'translateX(0px)'});
     const [transform, setTransform] = useState(0);
+    const {filmsLimit} = useSelector(state => state.loadReducer)
+    console.log(filmsLimit)
 
 
     const switcher = (e: boolean) => {

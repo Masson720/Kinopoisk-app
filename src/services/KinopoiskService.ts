@@ -6,8 +6,8 @@ import {API_TOKEN, API_URL} from "../constants/api";
 export const kinopoiskAPI = createApi({
     reducerPath: "kinopoiskAPI",
     baseQuery: fetchBaseQuery({baseUrl: API_URL}),
-    endpoints: (builder) => ({
-        getTop: builder.query({
+    endpoints: (build) => ({
+        getTop: build.query({
             query: ({query, filters, page}) => {
                 return `movie?${filters.genre}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}
                 &field=rating.kp&${query}&sortField=year&sortType=${filters.sortByRelease}
@@ -23,4 +23,4 @@ export const {
 
 export const {
     useGetTop
-} = kinopoiskAPI
+} = kinopoiskAPI;
