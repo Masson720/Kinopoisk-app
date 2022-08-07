@@ -1,5 +1,7 @@
 import s from './style.module.scss';
 import {InfoBlock} from "./infoBlock/InfoBlock";
+// @ts-ignore
+import Image from 'next/image';
 
 export const Description = () => {
 
@@ -7,7 +9,7 @@ export const Description = () => {
     return <>
         <div className={s.main}>
             <div>
-                <img className={s.poster} src='https://www.film.ru/sites/default/files/people/1546123-881008.jpg'/>
+                <Image className={s.poster} src='https://www.film.ru/sites/default/files/people/1546123-881008.jpg'/>
             </div>
 
             <div className={s.info}>

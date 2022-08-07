@@ -1,6 +1,7 @@
 import s from './style.module.scss';
 import {useState} from "react";
 
+
 export const Slider = () => {
     const [move, setMove] = useState({transform: 'translateX(0px)'});
     const [transform, setTransform] = useState(0);

@@ -4,11 +4,7 @@
   height: 450px;
   margin: 0 auto;
   margin-top: 70px;
-  img {
-    width: 1190px;
-    height: 430px;
-    border-radius: 5px;
-  }
+
 
   .title {
     color: white;
@@ -17,6 +13,12 @@
     transform: translateY(300px) translateX(50px);
 
   }
+}
+
+.img {
+  width: 1190px;
+  height: 430px;
+  border-radius: 5px;
 }
 
 .topBlock {
