@@ -8,8 +8,8 @@ export const Slider = () => {
     const [move, setMove] = useState({transform: 'translateX(0px)'});
     const [transform, setTransform] = useState(0);
     const {filmsLimit} = useTypedSelector(state => state.loadReducer)
-    const {data, isFetching} = useGetTopQuery(filmsLimit)
-    console.log(data)
+    // const {data, isFetching} = useGetTopQuery(filmsLimit)
+    // console.log(data)
 
 
     const switcher = (e: boolean) => {
