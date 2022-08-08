@@ -22,5 +22,5 @@ export const {
 } = kinopoiskAPI.endpoints;
 
 export const {
-    useGetTop
+    useGetTopQuery
 } = kinopoiskAPI;
