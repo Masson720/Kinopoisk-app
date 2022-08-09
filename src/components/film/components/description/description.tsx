@@ -1,11 +1,17 @@
 import s from './style.module.scss';
 import {InfoBlock} from "../infoBlock/InfoBlock";
+import {getColor} from "../../../../helpers/helpers";
 
-export const Description = () => {
+export const Description = ({data}) => {
+    const {
+        ageRating, alternativeName, description, facts, poster, slogan,
+        trailers, year, rating, premiere, persons, similarMovies
+    } = data;
+    
     return <>
         <div className={s.main}>
             <div>
-                <div className={s.rating}>
+                <div className={s.rating} style={{background: getColor(rating.kp)}}>
                     7.9
                 </div>
                 <img className={s.poster} src='https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/cf340494-877d-4e48-bdda-96e8c9a7d0f1/300x'/>

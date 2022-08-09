@@ -12,14 +12,21 @@ export const kinopoiskAPI = createApi({
             query: limit => {
                 return `/movie?field=rating.kp&search=1-10&field=year&search=${getYear()}&field=typeNumber&search=1&limit=${limit}&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_TOKEN}`
             }
+        }),
+        getFilmById: build.query({
+            query: id => {
+                return `/movie?search=${id}&field=id&token=${API_TOKEN}`
+            }
         })
     })
 })
 
 export const {
-    getTop
+    getTop,
+    getFilmById
 } = kinopoiskAPI.endpoints;
 
 export const {
-    useGetTopQuery
+    useGetTopQuery,
+    useGetFilmByIdQuery
 } = kinopoiskAPI;
