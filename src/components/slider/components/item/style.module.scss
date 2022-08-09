@@ -1,0 +1,42 @@
+.body {
+  width: 220px;
+  height: 300px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.poster {
+  width: 200px;
+  height: 280px;
+}
+
+.title {
+  font-size: 17px;
+}
+
+.frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+}
+
+.rating {
+  margin: 12px;
+  width: 35px;
+  height: 25px;
+  font-size: 14px;
+}
+
+.year {
+  margin: 245px 150px;
+  width: 40px;
+  height: 25px;
+  background: #a1a0a0;
+  font-size: 12px;
+  border-radius: 3px;
+}
+

@@ -45,12 +45,12 @@ export const InfoBlock = () => {
             <hr className={s.upper}/>
             <div className={s.info}>
                 {descriptionMode? <div className={s.about}>Описание</div> : null}
-                {actorsMode? <div><Slider/> </div> : null}
+                {actorsMode? <div></div> : null}
                 {factsMode? <div><Facts/></div> : null}
             </div>
             <div className={s.moreFilms}>
                 <h1>Similar films</h1>
-                <Slider/>
+                <div></div>
             </div>
             
         </div>

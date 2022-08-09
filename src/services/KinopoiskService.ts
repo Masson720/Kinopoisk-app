@@ -1,6 +1,7 @@
 // @ts-ignore
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
 import {API_TOKEN, API_URL} from "../constants/api";
+import {getYear} from "../helpers/helpers";
 
 
 export const kinopoiskAPI = createApi({
@@ -8,10 +9,8 @@ export const kinopoiskAPI = createApi({
     baseQuery: fetchBaseQuery({baseUrl: API_URL}),
     endpoints: (build) => ({
         getTop: build.query({
-            query: ({query, filters, page}) => {
-                return `movie?${filters.genre}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}
-                &field=rating.kp&${query}&sortField=year&sortType=${filters.sortByRelease}
-                &limit=10&page${page}&token=${API_TOKEN}`
+            query: limit => {
+                return `/movie?field=rating.kp&search=1-10&field=year&search=${getYear()}&field=typeNumber&search=1&limit=${limit}&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${API_TOKEN}`
             }
         })
     })
