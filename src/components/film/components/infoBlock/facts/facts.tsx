@@ -1,7 +1,6 @@
 import s from './style.module.scss';
 
 export const Facts = ({facts}) => {
-    console.log(facts)
 
     return <>
         <div className={s.body}>

@@ -31,7 +31,7 @@ export interface IFilmData {
     persons: Array<IPersons>
     poster: IPoster
     lists: []
-    similarMovies: ISimilarMovies
+    similarMovies: Array<ISimilarMovies>
 }
 
 interface IBackdrop {
@@ -134,9 +134,10 @@ interface IPoster {
     previewUrl: string
 }
 
-interface ISimilarMovies {
+export interface ISimilarMovies {
     alternativeName: string
     enName: string
     id: number
     name: string
+    poster: IPoster
 }

@@ -64,6 +64,7 @@ export const Description: React.FC<FilmPropsType> = ({data}) => {
         <InfoBlock
             description={description}
             facts={facts}
+            similarMovies={similarMovies}
         />
     </>
 }

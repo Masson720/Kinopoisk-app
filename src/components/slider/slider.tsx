@@ -3,10 +3,11 @@ import {useState} from "react";
 import {Item} from "./components/item/item";
 
 
-export const Slider = ({docs, total, limit, page, pages}: any) => {
+export const Slider = ({docs}: any) => {
     const [move, setMove] = useState({transform: 'translateX(0px)'});
     const [maxShift, setMaxShift] = useState(800)
     const [transform, setTransform] = useState(0);
+
 
     const switcher = (e: boolean) => {
         let shift = transform;
@@ -23,6 +24,7 @@ export const Slider = ({docs, total, limit, page, pages}: any) => {
             ...move, transform: `translateX(-${shift}px)`
         });
     }
+
 
     return <>
         <div className={s.body}>

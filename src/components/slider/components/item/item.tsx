@@ -1,9 +1,7 @@
 import s from './style.module.scss';
-// @ts-ignore
 import classNames from 'classnames';
-import {getColor} from "../../../../helpers/helpers";
+import {getColor} from "@/helpers/helpers";
 import React from "react";
-// @ts-ignore
 import Link from "next/link";
 
 export const Item = ({name, poster, year, id, rating}) => {

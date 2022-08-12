@@ -1,13 +1,23 @@
 import s from './style.module.scss';
 import {useState} from "react";
-import {Slider} from "../../../slider/slider";
 import {Facts} from "./facts/facts";
+import {Swiper, SwiperSlide} from "swiper/react";
+import 'swiper/css';
+import {Item} from "@/components/film/components/infoBlock/item/item";
+import {IFacts} from "@/types/IFacts";
+import {ISimilarMovies} from "@/types/IFilmData";
+import {MoreFilms} from "@/components/film/components/infoBlock/moreFilm/moreFilm";
 
-export const InfoBlock = ({description, facts}) => {
+type InfoBlockType = {
+    description: string
+    facts: IFacts
+    similarMovies: Array<ISimilarMovies>
+}
+
+export const InfoBlock: React.FC<InfoBlockType> = ({description, facts, similarMovies}) => {
     const [descriptionMode, setDescriptionMode] = useState(true);
     const [actorsMode, setActorsMode] = useState(false);
-    const [factsMode, setFactsMode] = useState(false)
-
+    const [factsMode, setFactsMode] = useState(false);
     const descriptionSwitcher = () => {
         setDescriptionMode(true)
         setActorsMode(false)
@@ -48,13 +58,7 @@ export const InfoBlock = ({description, facts}) => {
                 {actorsMode? <div></div> : null}
                 {factsMode? <div><Facts facts={facts}/></div> : null}
             </div>
-            <div className={s.moreFilms}>
-                <h1>Similar films</h1>
-                <div></div>
-            </div>
-            
+            <MoreFilms data={similarMovies}/>
         </div>
-
-
     </>
 }
