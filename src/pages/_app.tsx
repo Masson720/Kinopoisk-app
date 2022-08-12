@@ -4,10 +4,12 @@ import useStore from "../store/store";
 import {useRouter} from "next/router";
 // @ts-ignore
 import {Provider} from 'react-redux';
+// @ts-ignore
+import {AppProps} from "next/app";
 
 
 
-export default function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }: AppProps) {
 
     const store = useStore(pageProps.initialReduxState);
 

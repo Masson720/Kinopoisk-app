@@ -1,4 +1,6 @@
 import {IFacts} from "./IFacts";
+import {IData} from "./IData";
+
 
 export interface IFilmData {
     name: string
@@ -8,7 +10,8 @@ export interface IFilmData {
     alternativeName: string
     id: number
     type: "movie"
-    backdrop: BackdropType
+    description: string
+    backdrop: IBackdrop
     rating: IRating
     votes: IVotes
     videos: IVideos
@@ -22,14 +25,16 @@ export interface IFilmData {
     productionCompanies: Array<IProductionCompanies>
     spokenLanguages: Array<ISpokenLanguages>
     facts: Array<IFacts>
-    genries: Array<IGenries>
+    genres: Array<IGenres>
     countries: Array<ICountries>
     seasonInfo: []
     persons: Array<IPersons>
+    poster: IPoster
     lists: []
+    similarMovies: ISimilarMovies
 }
 
-interface BackdropType {
+interface IBackdrop {
     _id: string
     url: string | null
 }
@@ -106,7 +111,7 @@ interface ISpokenLanguages {
     nameEn: string
 }
 
-interface IGenries {
+interface IGenres {
     name: string
 }
 
@@ -123,4 +128,15 @@ interface IPersons {
     enProfessing: string
 }
 
+interface IPoster {
+    _id: string
+    url: string
+    previewUrl: string
+}
 
+interface ISimilarMovies {
+    alternativeName: string
+    enName: string
+    id: number
+    name: string
+}

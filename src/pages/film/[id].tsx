@@ -1,7 +1,5 @@
-import {Layout} from "../../components/Layout/layout";
-import Film from "../../components/film/film";
-import {useGetFilmByIdQuery} from '../../services/KinopoiskService'
-// @ts-ignore
+import {Layout} from "@/components/Layout/layout";
+import {Film} from "@/components/film/film";
 import {useRouter} from "next/router";
 
 

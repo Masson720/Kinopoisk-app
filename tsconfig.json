@@ -13,10 +13,24 @@
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
+    "moduleResolution": "node",
     "module": "esnext",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/helpers/*": ["src/helpers/*"],
+      "@/types/*": ["src/types/*"],
+      "@/components/*": ["src/components/*"],
+      "@/UI/*": ["src/components/UI/*"],
+      "@/services/*": ["src/services/*"],
+      "@/store/*": ["src/store/*"],
+      "@/scss/*": ["src/scss/*"],
+      "@/constants/*": ["src/constants/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "*": ["*", "generated/*"]
+    }
   },
   "include": [
     "next-env.d.ts",

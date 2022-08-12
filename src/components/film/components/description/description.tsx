@@ -1,86 +1,69 @@
 import s from './style.module.scss';
 import {InfoBlock} from "../infoBlock/InfoBlock";
-import {getColor} from "../../../../helpers/helpers";
+import {getColor} from "@/helpers/helpers";
+import React, { Fragment } from "react";
+import {IFilmData} from "@/types/IFilmData";
 
-export const Description = ({data}) => {
+type FilmPropsType = {
+    data: IFilmData
+}
+
+
+export const Description: React.FC<FilmPropsType> = ({data}) => {
     const {
         ageRating, alternativeName, description, facts, poster, slogan,
-        trailers, year, rating, premiere, persons, similarMovies
+        videos, year, rating, premiere, persons, similarMovies, name, countries, genres, budget, movieLength, fees,
     } = data;
-    
+
+
+    const items = [
+        {meaning: 'Country', value: countries?.map((el, id) => <Fragment key={id}>{id ? ', ' : ''}{el.name}</Fragment>), condition: countries?.length},
+        {meaning: 'Genre', value: genres?.map((el,id) => <Fragment key={id}>{id ? ', ' : ''}{el.name}</Fragment>), condition: genres?.length},
+        {meaning: 'Slogan', value: slogan, condition: slogan},
+        {meaning: 'Budget', value: `${budget?.value} ${budget?.currency}`, condition: budget?.value},
+        {meaning: 'Age', value: `${ageRating} +`, condition: ageRating},
+        {meaning: 'Timing', value: `${movieLength} min`, condition: movieLength},
+        {meaning: 'US box office', value: `${fees?.usa?.value} ${fees?.usa?.currency}`, condition: fees?.usa?.value},
+        {meaning: 'World box office', value: `${fees?.world?.value} ${fees?.world?.currency}`, condition: fees?.world?.value},
+        {meaning: 'World Premiere', value: premiere?.world, condition: premiere?.world}
+    ]
+
+    const listGen = () => {
+        const listItems = []
+        items.forEach(e => listItems.push(
+            <li><span className={s.property}>
+                        {e.meaning}
+                    </span>
+                <span className={s.meaning}>
+                        {e.condition ? e.value : '-'}
+                    </span>
+            </li>
+        ))
+        return listItems;
+    }
+
     return <>
         <div className={s.main}>
             <div>
                 <div className={s.rating} style={{background: getColor(rating.kp)}}>
-                    7.9
+                    {rating.kp}
                 </div>
-                <img className={s.poster} src='https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/cf340494-877d-4e48-bdda-96e8c9a7d0f1/300x'/>
+                <img className={s.poster} src={poster.url}/>
 
             </div>
 
             <div className={s.info}>
-                <h1>Бэтмен (2022)</h1>
-                <span className={s.engTitle}>The Batman</span>
+                <h1>{name}</h1>
+                <span className={s.engTitle}>{alternativeName}</span>
                 <h2>About the movie</h2>
                 <ul>
-                    <li><span className={s.property}>
-                        Country
-                    </span>
-                        <span className={s.meaning}>
-                        USA
-                    </span></li>
-                    <li><span className={s.property}>
-                        Genre
-                    </span>
-                        <span className={s.meaning}>
-                        drama, crime, detective, thriller
-                    </span></li>
-                    <li><span className={s.property}>
-                        Tagline
-                    </span>
-                        <span className={s.meaning}>
-                        Unmask The Truth
-                    </span></li>
-                    <li><span className={s.property}>
-                        Budget
-                    </span>
-                        <span className={s.meaning}>
-                        $ 200 000 000
-                    </span></li>
-                    <li><span className={s.property}>
-                        Age
-                    </span>
-                        <span className={s.meaning + ' ' + s.pg}>
-                        16+
-                    </span></li>
-                    <li><span className={s.property}>
-                        Timing
-                    </span>
-                        <span className={s.meaning}>
-                        176min
-                    </span></li>
-                    <li><span className={s.property}>
-                        US box office
-                    </span>
-                        <span className={s.meaning}>
-                        $ 369 345 583
-                    </span></li>
-                    <li><span className={s.property}>
-                        World box office
-                    </span>
-                        <span className={s.meaning}>
-                        + $ 401 490 580 = $ 770 836 163
-                    </span></li>
-                    <li><span className={s.property}>
-                        World Premiere
-                    </span>
-                        <span className={s.meaning}>
-                        1 марта 2022
-                    </span></li>
-
+                    {listGen()}
                 </ul>
             </div>
         </div>
-        <InfoBlock/>
+        <InfoBlock
+            description={description}
+            facts={facts}
+        />
     </>
 }

@@ -1,5 +1,5 @@
 // @ts-ignore
-import {configureStore} from "@reduxjs/toolkit";
+import {configureStore, PreloadedState} from "@reduxjs/toolkit";
 import {kinopoiskAPI} from "../services/KinopoiskService";
 import {useMemo} from "react";
 // @ts-ignore
@@ -23,7 +23,7 @@ export const initialStore = (preloadedState = {}) => {
         });
 }
 
-export const initializeStore = (preloadedState) => {
+export const initializeStore = (preloadedState: PreloadedState<RootState>) => {
     let _store = store ?? initialStore(preloadedState);
 
     if(preloadedState && store){
