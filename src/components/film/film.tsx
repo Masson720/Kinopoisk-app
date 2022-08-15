@@ -7,7 +7,6 @@ import {useGetFilmByIdQuery} from "@/services/KinopoiskService";
 
 export const Film = ({id}) => {
     const {data, isSuccess} = useGetFilmByIdQuery(id);
-
     if(isSuccess) {
         return <>
             <Back/>

@@ -8,7 +8,7 @@ interface IReviewItem {
     id: number
     movieId: number
     title: string
-    type: string
+    type: 'Позитивный' | 'Негативный' | 'Нейтральный'
     review: string
     date: string
     author: string

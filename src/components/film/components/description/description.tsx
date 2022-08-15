@@ -15,7 +15,6 @@ export const Description: React.FC<FilmPropsType> = ({data}) => {
         videos, year, rating, premiere, persons, similarMovies, name, countries, genres, budget, movieLength, fees,
     } = data;
 
-
     const items = [
         {meaning: 'Country', value: countries?.map((el, id) => <Fragment key={id}>{id ? ', ' : ''}{el.name}</Fragment>), condition: countries?.length},
         {meaning: 'Genre', value: genres?.map((el,id) => <Fragment key={id}>{id ? ', ' : ''}{el.name}</Fragment>), condition: genres?.length},
@@ -65,6 +64,7 @@ export const Description: React.FC<FilmPropsType> = ({data}) => {
             description={description}
             facts={facts}
             similarMovies={similarMovies}
+            persons={persons}
         />
     </>
 }

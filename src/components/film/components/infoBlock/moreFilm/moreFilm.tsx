@@ -11,7 +11,7 @@ export const MoreFilms = ({data}) => {
           <Slider title={'Similar Films'} count={data.length}>
               {
                   data.map(e => <SwiperSlide>
-                                    <Item key={e.id} id={e.id} name={e.name} poster={e.poster} />
+                                    <Item key={e.id} id={e.id} name={e.name} poster={e.poster?.previewUrl} />
                                 </SwiperSlide>)
               }
           </Slider>

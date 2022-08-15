@@ -13,3 +13,17 @@ export const getColor = (r: number) => {
         return "#e73602"
     }
 }
+
+export const getReviewColor = (a: string) => {
+    switch (a){
+        case 'Позитивный':
+            return '#cafcda'
+        case 'Негативный':
+            return '#ffbaae'
+        case 'Нейтральный':
+            return '#e8e8e8'
+        default:
+            return '#cafcda'
+    }
+
+}
