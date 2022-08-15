@@ -12,7 +12,7 @@ export const Film = ({id}) => {
         return <>
             <Back/>
             <Description data={data}/>
-            <Reviews/>
+            <Reviews id={id}/>
         </>
     }
 

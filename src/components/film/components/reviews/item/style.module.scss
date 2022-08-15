@@ -1,37 +1,8 @@
 .body {
   width: 850px;
-  height: 390px;
   background: #a7fcd4;
   border-radius: 7px;
   margin: 30px 0;
-
-  .review {
-    width: 850px;
-    height: 320px;
-    padding: 30px;
-    border-bottom: 1px solid #aaaaaa;
-
-    h1 {
-      font-size: 23px;
-      padding: 5px 0;
-    }
-
-    p {
-      font-size: 13px;
-      height: 190px;
-    }
-
-    button {
-      border: none;
-      cursor: pointer;
-      width: 200px;
-      height: 20px;
-      border-radius: 3px;
-      color: #828282;
-      font-weight: bold;
-    }
-
-  }
 
   .other {
     width: 800px;
@@ -72,5 +43,43 @@
     }
 
 
+  }
+}
+
+.review {
+   width: 850px;
+   min-height: 85%;
+   padding: 30px;
+   border-bottom: 1px solid #aaaaaa;
+
+   h1 {
+     font-size: 23px;
+     padding: 5px 0;
+   }
+
+
+
+   button {
+     margin: 20px 0px;
+     border: none;
+     cursor: pointer;
+     width: 200px;
+     height: 20px;
+     border-radius: 3px;
+     color: #828282;
+     font-weight: bold;
+   }
+
+ }
+
+.reviewText {
+  font-size: 13px;
+  white-space: pre-line;
+  word-wrap: break-word;
+  min-height: 200px;
+
+  &.truncated {
+    max-height: 200px;
+    overflow: hidden;
   }
 }

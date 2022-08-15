@@ -13,4 +13,6 @@ interface IReviewItem {
     date: string
     author: string
     userRating: number
+    reviewLikes: number
+    reviewDislikes: number
 }

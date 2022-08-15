@@ -1,16 +1,14 @@
 import s from './style.module.scss';
 import {useState} from "react";
 import {Facts} from "./facts/facts";
-import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/css';
-import {Item} from "@/components/film/components/infoBlock/item/item";
 import {IFacts} from "@/types/IFacts";
 import {ISimilarMovies} from "@/types/IFilmData";
 import {MoreFilms} from "@/components/film/components/infoBlock/moreFilm/moreFilm";
 
 type InfoBlockType = {
     description: string
-    facts: IFacts
+    facts: Array<IFacts>
     similarMovies: Array<ISimilarMovies>
 }
 
@@ -55,7 +53,7 @@ export const InfoBlock: React.FC<InfoBlockType> = ({description, facts, similarM
             <hr className={s.upper}/>
             <div className={s.info}>
                 {descriptionMode? <div className={s.about}>{description}</div> : null}
-                {actorsMode? <div></div> : null}
+                {actorsMode? <div><MoreFilms data={similarMovies}/></div> : null}
                 {factsMode? <div><Facts facts={facts}/></div> : null}
             </div>
             <MoreFilms data={similarMovies}/>

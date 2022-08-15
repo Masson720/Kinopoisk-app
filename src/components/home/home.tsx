@@ -1,9 +1,16 @@
 import s from './style.module.scss'
 import {Slider} from "../slider/slider";
-import {NewFilms} from "../newFilms/newFilms";
+import {useTypedSelector} from "@/hooks/selector";
+import {useGetTopQuery} from "@/services/KinopoiskService";
+import {Item} from "./components/item/Item";
+import {SwiperSlide} from "swiper/react";
 
 
 export const Home = () => {
+    const {filmsLimit} = useTypedSelector(state => state.loadReducer)
+    const {data, isSuccess} = useGetTopQuery(filmsLimit);
+    const {docs, total, limit, page, pages} = data;
+    console.log(docs)
     return <>
         <div className={s.ad}>
             <div className={s.title}>Доктор Стрэндж</div>
@@ -13,7 +20,18 @@ export const Home = () => {
 
         </div>
         <div className={s.topBlock}>
-            <NewFilms/>
+            <Slider title={'New Film'} count={docs.length}>
+                {docs.map(e =>
+                    <SwiperSlide>
+                        <Item key={e.id}
+                        name={e.name}
+                        id={e.id}
+                        poster={e.poster}
+                        rating={e.rating}
+                        year={e.year}/>
+                    </SwiperSlide>
+                )}
+            </Slider>
         </div>
     </>
 }

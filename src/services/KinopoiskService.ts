@@ -3,6 +3,7 @@ import {API_TOKEN, API_URL} from "@/constants/api";
 import {getYear} from "@/helpers/helpers";
 import {IFilmData} from "@/types/IFilmData";
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
+import {IReview} from "@/types/IReview";
 
 
 export const kinopoiskAPI = createApi({
@@ -18,16 +19,23 @@ export const kinopoiskAPI = createApi({
             query: id => {
                 return `/movie?search=${id}&field=id&token=${API_TOKEN}`
             }
-        })
+        }),
+        getReviewById: build.query<IReview, string | Array<string> | undefined>({
+            query: id => {
+                return `review?search=${id}&field=movieId&limit=10&token=${API_TOKEN}`
+            }
+        }),
     })
 })
 
 export const {
     getTop,
-    getFilmById
+    getFilmById,
+    getReviewById
 } = kinopoiskAPI.endpoints;
 
 export const {
     useGetTopQuery,
-    useGetFilmByIdQuery
+    useGetFilmByIdQuery,
+    useGetReviewByIdQuery
 } = kinopoiskAPI;

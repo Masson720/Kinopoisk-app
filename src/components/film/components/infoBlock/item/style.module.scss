@@ -1,14 +1,21 @@
 .body {
-  width: 230px;
-  height: 370px;
-  margin: 10px;
+  width: 220px;
+  height: 330px;
+  cursor: pointer;
+}
+
+.link {
+  position: relative;
+  display: block;
+  width: 220px;
+  height: 320px;
 }
 
 .poster {
-  width: 230px;
-  height: 300px;
+  border-radius: 6px;
 }
 
-.name {
-  font-size: 18px;
+
+.title {
+  font-size: 17px;
 }
