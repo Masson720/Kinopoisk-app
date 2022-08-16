@@ -1,9 +1,9 @@
 import s from './style.module.scss';
 import {useState} from "react";
-import {Slider} from "../../../../slider/slider";
-import {Facts} from "./facts/facts";
+import {MoreFilms} from "@/components/moreFilm/moreFilm";
+import {Facts} from "@/components/facts/facts";
 
-export const InfoBlock = () => {
+export const InfoBlock = ({facts, data}) => {
     const [filmsMode, setDescriptionMode] = useState(true);
     const [factsMode, setFactsMode] = useState(false)
 
@@ -31,8 +31,8 @@ export const InfoBlock = () => {
             </div>
             <hr className={s.upper}/>
             <div className={s.info}>
-                {filmsMode? <Slider/> : null}
-                {factsMode? <div><Facts/></div> : null}
+                {filmsMode? <MoreFilms data={data?.docs} title={'Films and series'} route={'film'}/> : null}
+                {factsMode? <div><Facts facts={facts}/></div> : null}
             </div>
         </div>
 

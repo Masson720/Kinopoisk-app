@@ -6,6 +6,7 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
 import {IReview} from "@/types/IReview";
 import {IBaseQuery} from "@/types/IBaseTypes";
 import {IPerson} from "@/types/IPerson";
+import {IFilmsData} from "@/types/IFilmsData";
 
 
 export const kinopoiskAPI = createApi({
@@ -20,6 +21,11 @@ export const kinopoiskAPI = createApi({
         getFilmById: build.query<IFilmData, string | Array<string> | undefined>({
             query: id => {
                 return `/movie?search=${id}&field=id&token=${API_TOKEN}`
+            }
+        }),
+        getFilmsById: build.query<IFilmsData, IBaseQuery>({
+            query: ({query, limit}) => {
+                return `/movie?${query}&limit=${limit}&token=${API_TOKEN}`
             }
         }),
         getPersonById: build.query<IPerson, string | Array<string> | undefined>({
@@ -44,6 +50,7 @@ export const {
 export const {
     useGetTopQuery,
     useGetFilmByIdQuery,
+    useGetFilmsByIdQuery,
     useGetPersonByIdQuery,
     useGetReviewByIdQuery
 } = kinopoiskAPI;

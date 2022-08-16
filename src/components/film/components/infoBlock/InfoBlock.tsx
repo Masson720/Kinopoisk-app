@@ -1,10 +1,10 @@
 import s from './style.module.scss';
 import {useState} from "react";
-import {Facts} from "./facts/facts";
+import {Facts} from "../../../facts/facts";
 import 'swiper/css';
 import {IFacts} from "@/types/IFacts";
 import {ISimilarMovies} from "@/types/IFilmData";
-import {MoreFilms} from "@/components/film/components/infoBlock/moreFilm/moreFilm";
+import {MoreFilms} from "@/components/moreFilm/moreFilm";
 import {Actors} from "@/components/film/components/infoBlock/actors/actors";
 
 type InfoBlockType = {
@@ -58,7 +58,7 @@ export const InfoBlock: React.FC<InfoBlockType> = ({description, facts, similarM
                 {actorsMode? <div><Actors data={persons}/></div> : null}
                 {factsMode? <div><Facts facts={facts}/></div> : null}
             </div>
-            <MoreFilms data={similarMovies}/>
+            <MoreFilms data={similarMovies} title={'Similar Movies'} route={'film'}/>
         </div>
     </>
 }

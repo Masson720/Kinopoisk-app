@@ -2,12 +2,13 @@ import s from './style.module.scss';
 import {InfoBlock} from "./infoBlock/InfoBlock";
 import Image from 'next/image';
 import {useRouter} from "next/router";
-import { useGetPersonByIdQuery } from '@/services/KinopoiskService';
+import { useGetPersonByIdQuery, useGetFilmsByIdQuery} from '@/services/KinopoiskService';
 import React, { Fragment } from "react";
 
 export const Description = () => {
     const {query: {id}} = useRouter();
     const {data, isSuccess} = useGetPersonByIdQuery(id);
+    console.log(data)
     const {age,
         birthPlace,
         countAwards,
@@ -24,7 +25,6 @@ export const Description = () => {
         birthday,
         spouses
         } = {...data}
-        console.log(data)
 
     const items = [
         {meaning: 'Career', value: profession?.map((e, id) => <Fragment key={id}>{id ? ', ' : ''}{e.value}</Fragment>), condition: profession?.length},
@@ -38,6 +38,9 @@ export const Description = () => {
                 <Fragment key={id}>{id ? ', ' : ''}{e.name}{e.divorced ? e.divorcedReacon : null}</Fragment>),
             condition: spouses?.length}
     ]
+
+    const query = movies?.map(e => `search=${e.id}&field=id`).join('&')
+    const {data: moviesOfPerson} = useGetFilmsByIdQuery({query, limit: movies?.length})
 
     return <>
         <div className={s.main}>
@@ -65,6 +68,6 @@ export const Description = () => {
                 </ul>
             </div>
         </div>
-        <InfoBlock/>
+        <InfoBlock data={moviesOfPerson} facts={facts}/>
     </>
 }

@@ -1,11 +1,10 @@
-import s from "@/components/film/components/infoBlock/moreFilm/style.module.scss";
+import s from "@/components/moreFilm/style.module.scss";
 import {Slider} from "@/components/slider/slider";
 import {SwiperSlide} from "swiper/react";
 import {Item} from "@/components/film/components/infoBlock/item/item";
 import React from "react";
 
 export const Actors = ({data}) => {
-    console.log(data)
     return <>
         <div className={s.body}>
             <Slider title={'Actors'} count={data.length}>
