@@ -1,7 +1,9 @@
 import {IFacts} from "./IFacts";
 
+
+
 export interface IPerson {
-    spouses: null | string
+    spouses?: Array<ISpouses>
     id: number
     name: string
     enName: string
@@ -14,7 +16,18 @@ export interface IPerson {
     age: number
     birthday: string
     death: null | string
-    growth: 183
+    growth: number
+    sex: string
+    countAwards: number
+}
+
+interface ISpouses {
+    name: string
+    children: number
+    divorced: boolean
+    divorcedReacon: string
+    id: number
+    relation: string
     sex: string
 }
 

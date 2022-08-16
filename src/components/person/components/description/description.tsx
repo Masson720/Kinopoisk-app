@@ -1,58 +1,67 @@
 import s from './style.module.scss';
 import {InfoBlock} from "./infoBlock/InfoBlock";
-// @ts-ignore
 import Image from 'next/image';
+import {useRouter} from "next/router";
+import { useGetPersonByIdQuery } from '@/services/KinopoiskService';
+import React, { Fragment } from "react";
 
 export const Description = () => {
+    const {query: {id}} = useRouter();
+    const {data, isSuccess} = useGetPersonByIdQuery(id);
+    const {age,
+        birthPlace,
+        countAwards,
+        death,
+        deathPlace,
+        enName,
+        facts,
+        growth,
+        movies,
+        name,
+        photo,
+        profession,
+        sex,
+        birthday,
+        spouses
+        } = {...data}
+        console.log(data)
 
+    const items = [
+        {meaning: 'Career', value: profession?.map((e, id) => <Fragment key={id}>{id ? ', ' : ''}{e.value}</Fragment>), condition: profession?.length},
+        {meaning: 'Sex', value: sex, condition: sex},
+        {meaning: 'Growth', value: growth, condition: growth},
+        {meaning: 'Date of Birth', value: birthday, condition: birthday},
+        {meaning: 'birth Place', value: birthPlace?.map((e, id) => <Fragment key={id}>{id ? ', ' : ''}{e.value}</Fragment>), condition: birthPlace?.length},
+        {meaning: 'Films', value: movies?.length, condition: movies?.length},
+        {meaning: 'Wife',
+            value: spouses?.map((e, id) =>
+                <Fragment key={id}>{id ? ', ' : ''}{e.name}{e.divorced ? e.divorcedReacon : null}</Fragment>),
+            condition: spouses?.length}
+    ]
 
     return <>
         <div className={s.main}>
             <div>
-                <Image className={s.poster} src='https://www.film.ru/sites/default/files/people/1546123-881008.jpg'/>
+                <img className={s.poster}
+                       src={photo}
+                />
             </div>
 
             <div className={s.info}>
-                <h1>Benedict Cumberbatch</h1>
-                <span className={s.engTitle}>Benedict Cumberbatch</span>
+                <h1>{name}</h1>
+                <span className={s.engTitle}>{enName}</span>
                 <h2>About the person</h2>
                 <ul>
-                    <li><span className={s.property}>
-                        Career
-                    </span>
-                        <span className={s.meaning}>
-                        Actor
-                    </span></li>
-                    <li><span className={s.property}>
-                        Sex
-                    </span>
-                        <span className={s.meaning}>
-                        male
-                    </span></li>
-                    <li><span className={s.property}>
-                        Heigth
-                    </span>
-                        <span className={s.meaning}>
-                        185
-                    </span></li>
-                    <li><span className={s.property}>
-                        Date of Birth
-                    </span>
-                        <span className={s.meaning}>
-                        19 yuly 1976
-                    </span></li>
-                    <li><span className={s.property}>
-                        Films
-                    </span>
-                        <span className={s.meaning}>
-                        208
-                    </span></li>
-                    <li><span className={s.property}>
-                        Wife
-                    </span>
-                        <span className={s.meaning}>
-                        -
-                    </span></li>
+                    {
+                        items.map(e => <li>
+                            <span className={s.property}>
+                                {e.meaning}
+                            </span>
+                            <span className={s.meaning}>
+                                {e.condition ? e.value : '-'}
+                            </span>
+                        </li>)
+                    }
                 </ul>
             </div>
         </div>
