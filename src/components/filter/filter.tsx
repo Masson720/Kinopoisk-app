@@ -4,9 +4,7 @@ import {useState} from "react";
 
 export const Filter = ({children, page}) => {
 
-    const [rating, setRating] = useState({
-        rating: [1, 10]
-    })
+
 
     return <>
         <div className={s.body}>

@@ -25,5 +25,15 @@ export const getReviewColor = (a: string) => {
         default:
             return '#cafcda'
     }
+}
 
+export const getPath = (p: string) => {
+    switch (p){
+        case 'movie':
+            return 'film';
+        case 'tv-series':
+            return 'series';
+        default:
+            return 'film';
+    }
 }

@@ -4,7 +4,7 @@ export interface IFilmsData extends IData {
     docs: Array<IFilmItem>
 }
 
-interface IFilmItem {
+export interface IFilmItem {
     externalId: IExternalId
     poster: IPoster
     rating: IRating
@@ -13,6 +13,8 @@ interface IFilmItem {
     type: string
     name: string
     year: number
+    description: string
+    movieLength: number
 }
 
 interface IExternalId {

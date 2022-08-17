@@ -28,6 +28,11 @@ export const kinopoiskAPI = createApi({
                 return `/movie?${query}&limit=${limit}&token=${API_TOKEN}`
             }
         }),
+        getFilmsBySearch: build.query({
+            query: ({filters}) => {
+                return `/movie?field=rating.kp&search=${filters.rating}&field=year&search=${filters.year}&sortType=${filters.sortByRelease}&token=${API_TOKEN}`
+            }
+        }),
         getPersonById: build.query<IPerson, string | Array<string> | undefined>({
             query: id => {
                 return `/person?search=${id}&field=id&token=${API_TOKEN}`
@@ -51,6 +56,7 @@ export const {
     useGetTopQuery,
     useGetFilmByIdQuery,
     useGetFilmsByIdQuery,
+    useGetFilmsBySearchQuery,
     useGetPersonByIdQuery,
     useGetReviewByIdQuery
 } = kinopoiskAPI;
