@@ -1,7 +1,77 @@
+$border: 1px solid grey;
+$buttonsColor: #014989;
 
 .body {
   width: 300px;
   height: 500px;
   margin: 0 auto;
-  background: #01e801;
+  padding: 15px;
+}
+
+.inputBlock {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.input {
+  width: 130px;
+  height: 30px;
+  border-radius: 6px;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #c7c7c7;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  margin: 0 10px 10px 0;
+  font-weight: bold;
+}
+
+.radio {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.selector {
+  width: 270px;
+  height: 40px;
+  font-size: 16px;
+  border: 1px solid #c7c7c7;
+  padding: 3px;
+}
+
+.rating {
+
+}
+
+.buttons {
+  margin-top: 15px;
+  width: 270px;
+  height: 100px;
+
+  .button {
+    width: 270px;
+    height: 35px;
+    margin-bottom: 15px;
+    font-size: 19px;
+    font-weight: bold;
+    background: white;
+    border: 1px solid $buttonsColor;
+    border-radius: 3px;
+    color: $buttonsColor;
+
+    &:hover {
+      cursor: pointer;
+      background: $buttonsColor;
+      color: white;
+    }
+  }
 }

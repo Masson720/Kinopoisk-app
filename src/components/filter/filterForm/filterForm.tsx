@@ -1,10 +1,36 @@
 import s from './style.module.scss';
-import {Formik} from "formik";
+import {Field, Formik} from "formik";
 import {getYear} from "@/helpers/helpers";
+import {genres} from "./genres";
+import {useActions} from "@/hooks/useActions";
+import {useEffect} from "react";
 
 export const FilterForm = ({year, genre, rating, sortByRelease}) => {
+    const {
+        setYear,
+        setRatings,
+        setSortByRelease,
+        setGenre,
+        resetFilters
+    } = useActions()
 
+    useEffect(() => {
+        return () => {
+            resetFilters()
+        }
+    }, [])
 
+    const onSubmit = (values) => {console.log(values)
+        const ratingValue = `${values.ratingDo}-${values.ratingFrom}`;
+        const genreValue = values.genres;
+        const yearValue = `${values.yearDo}-${values.yearFrom}`;
+        const sortByReleaseValue = values.sort;
+
+        setYear(yearValue);
+        setRatings(ratingValue);
+        setSortByRelease(sortByReleaseValue);
+        setGenre(genreValue);
+    }
 
 
     return <>
@@ -21,11 +47,8 @@ export const FilterForm = ({year, genre, rating, sortByRelease}) => {
                 validate={values => {
 
                 }}
-                onSubmit={(values, { setSubmitting }) => {
-                    setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2));
-                        setSubmitting(false);
-                    }, 400);
+                onSubmit={(values) => {
+                    onSubmit(values)
                 }}
             >
                 {({
@@ -35,12 +58,13 @@ export const FilterForm = ({year, genre, rating, sortByRelease}) => {
                       handleChange,
                       handleBlur,
                       handleSubmit,
-                      isSubmitting,
                       /* and other goodies */
                   }) => (
                     <form onSubmit={handleSubmit}>
-                        <div>
+                        <h1 className={s.title}>Rating</h1>
+                        <div className={s.inputBlock}>
                             <input
+                                className={s.input}
                                 type="ratingDo"
                                 name="ratingDo"
                                 onChange={handleChange}
@@ -49,6 +73,7 @@ export const FilterForm = ({year, genre, rating, sortByRelease}) => {
                             />
 
                             <input
+                                className={s.input}
                                 type="ratingFrom"
                                 name="ratingFrom"
                                 onChange={handleChange}
@@ -56,8 +81,10 @@ export const FilterForm = ({year, genre, rating, sortByRelease}) => {
                                 value={values.ratingFrom}
                             />
                         </div>
-                        <div>
+                        <h1 className={s.title}>Years of production</h1>
+                        <div className={s.inputBlock}>
                             <input
+                                className={s.input}
                                 type="yearDo"
                                 name="yearDo"
                                 onChange={handleChange}
@@ -65,6 +92,7 @@ export const FilterForm = ({year, genre, rating, sortByRelease}) => {
                                 value={values.yearDo}
                             />
                             <input
+                                className={s.input}
                                 type="yearFrom"
                                 name="yearFrom"
                                 onChange={handleChange}
@@ -72,9 +100,29 @@ export const FilterForm = ({year, genre, rating, sortByRelease}) => {
                                 value={values.yearFrom}
                             />
                         </div>
-                        <button type="submit" disabled={isSubmitting}>
-                            Submit
-                        </button>
+                        <h1 className={s.title}>Release</h1>
+                        <div className={s.label}>
+                            <label className={s.label}>
+                                <Field className={s.radio} type="radio" name="sort" value="-1" />
+                                Old
+                            </label>
+                            <label className={s.label}>
+                                <Field className={s.radio} type="radio" name="sort" value="1" />
+                                New
+                            </label>
+                        </div>
+                        <h1 className={s.title}>Genres</h1>
+                        <div className={s.inputBlock}>
+                            <select className={s.selector} name='genres' onChange={handleChange} value={values.genres}>
+                                {genres.map(e => <option className={s.select} value={e.value}>
+                                    {e.label}
+                                </option>)}
+                            </select>
+                        </div>
+                        <div className={s.buttons}>
+                            <button className={s.button} onClick={onSubmit}>Search</button>
+                            <button className={s.button} onClick={resetFilters}>Reset</button>
+                        </div>
                     </form>
                 )}
             </Formik>
