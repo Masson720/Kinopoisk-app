@@ -18,9 +18,8 @@ export const Filter = ({children, page}) => {
 
     const [ratingState, setRatingState] = useState({from: 1, do: 10});
     const [genreState, setGenreState] = useState('');
-    const [yearState, setYearState] = useState({from: 1960, do: getYear()});
+    const [yearState, setYearState] = useState({from: 1888, do: getYear()});
     const [sortState, setSortState] = useState('-1');
-
 
     const onSubmit = () => {
        const ratingValue = `${ratingState.from}-${ratingState.do}`;
@@ -57,8 +56,8 @@ export const Filter = ({children, page}) => {
                 </div>
                 <FilterForm year={year} genre={genre} rating={rating} sortByRelease={sortByRelease}/>
                 <div className={s.buttons}>
-                    <button className={s.button}>Search</button>
-                    <button className={s.button}>Reset</button>
+                    <button className={s.button} onClick={onSubmit}>Search</button>
+                    <button className={s.button} onClick={resetFilters}>Reset</button>
                 </div>
             </div>
             <div className={s.children}>{children}</div>

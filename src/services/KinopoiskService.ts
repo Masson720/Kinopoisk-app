@@ -30,7 +30,7 @@ export const kinopoiskAPI = createApi({
         }),
         getFilmsBySearch: build.query({
             query: ({filters}) => {
-                return `/movie?field=rating.kp&search=${filters.rating}&field=year&search=${filters.year}&sortType=${filters.sortByRelease}&token=${API_TOKEN}`
+                return `/movie?field=rating.kp&search=${filters.rating}&field=year&search=${filters.year}&sortType=${filters.sortByRelease}&isStrict=false&token=${API_TOKEN}`
             }
         }),
         getPersonById: build.query<IPerson, string | Array<string> | undefined>({

@@ -1,5 +1,5 @@
 import {configureStore, PreloadedState} from "@reduxjs/toolkit";
-import {kinopoiskAPI} from "../services/KinopoiskService";
+import {kinopoiskAPI} from "@/services/KinopoiskService";
 import {useMemo} from "react";
 import {createWrapper} from "next-redux-wrapper";
 import {loadReducer} from "./reducers/loadReducer";
