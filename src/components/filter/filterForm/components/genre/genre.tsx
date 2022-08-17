@@ -1,7 +1,9 @@
 import s from './style.module.scss';
 import {genres} from './genres'
 
-export const Genre = () => {
+export const Genre = ({genre}) => {
+
+
     return <>
         <div className={s.body}>
             <h1 className={s.title}>Genres</h1>

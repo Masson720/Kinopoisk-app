@@ -5,15 +5,14 @@ import {Genre} from "./components/genre/genre";
 import {Years} from "./components/years/years";
 import {Release} from "./components/release/release";
 
-export const FilterForm = () => {
-
+export const FilterForm = ({year, genre, rating, sortByRelease}) => {
 
     return <>
         <div className={s.body}>
-            <Rating/>
-            <Years/>
-            <Genre/>
-            <Release/>
+            <Rating rating={rating}/>
+            <Years year={year}/>
+            <Genre genre={genre}/>
+            <Release sortByRelease={sortByRelease}/>
         </div>
     </>
 }

@@ -1,7 +1,8 @@
 import s from './style.module.scss';
 
 
-export const Rating = () => {
+
+export const Rating = ({rating}) => {
 
 
     return <>
@@ -10,6 +11,7 @@ export const Rating = () => {
             <div className={s.ratingSelectors}>
                 <input className={s.text} type="text"/>
                 <input className={s.text} type="text"/>
+
             </div>
         </div>
     </>

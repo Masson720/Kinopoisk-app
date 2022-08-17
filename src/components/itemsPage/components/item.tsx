@@ -10,10 +10,8 @@ type ItemPropsType = {
 
 export const Item: FC<ItemPropsType> = ({docs}) => {
     const {
-        externalId,
         poster,
         rating,
-        votes,
         id,
         type,
         name,

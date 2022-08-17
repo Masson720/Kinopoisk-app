@@ -1,5 +1,5 @@
 export const genres = [
-    {label: "Все жанры", value: ""},
+    {label: "Все жанры", value: ''},
     {label: "Семейные", value: "семейный"},
     {label: "Биографии", value: "биография"},
     {label: "Боевики", value: "боевик"},

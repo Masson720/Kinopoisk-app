@@ -1,8 +1,6 @@
-// @ts-ignore
 import {configureStore, PreloadedState} from "@reduxjs/toolkit";
 import {kinopoiskAPI} from "../services/KinopoiskService";
 import {useMemo} from "react";
-// @ts-ignore
 import {createWrapper} from "next-redux-wrapper";
 import {loadReducer} from "./reducers/loadReducer";
 import {filtersReducer} from "./reducers/filterReducer";

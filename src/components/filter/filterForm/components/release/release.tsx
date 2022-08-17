@@ -1,6 +1,7 @@
 import s from './style.module.scss';
 
-export const Release = () => {
+export const Release = ({sortByRelease}) => {
+
     return <>
         <div className={s.body}>
             <h1 className={s.title}>Release</h1>

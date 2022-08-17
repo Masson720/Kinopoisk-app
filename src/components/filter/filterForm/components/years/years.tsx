@@ -1,6 +1,8 @@
 import s from './style.module.scss';
 
-export const Years = () => {
+export const Years = ({year}) => {
+
+
     return <>
         <div className={s.body}>
             <h1 className={s.title}>Years of production</h1>
