@@ -1,17 +1,22 @@
 import s from './style.module.scss';
 import {Item} from "./components/item";
-import {IFilmItem} from "@/types/IFilmsData";
+import {IFilmsData} from "@/types/IFilmsData";
 import {FC} from "react";
+import {Pagination} from "@/UI/pagination/pagination";
 
 type ItemsPagePropsType = {
-    docs: Array<IFilmItem>
+    data: IFilmsData
+    actualPage: number
+    switcher: (number) => void
+    isLoading: boolean
 }
 
-export const ItemsPage: FC<ItemsPagePropsType> = ({docs}) => {
+export const ItemsPage: FC<ItemsPagePropsType> = ({data, actualPage, switcher, isLoading}) => {
 
     return <>
         <div className={s.body}>
-            {docs?.map(e => <Item docs={e}/>)}
+            <Pagination actualPage={actualPage} pages={data?.pages} switcher={switcher} isLoading={isLoading}/>
+            {data?.docs.map(e => <Item docs={e}/>)}
         </div>
     </>
 }

@@ -27,7 +27,7 @@ export const Filter = ({children, page}) => {
                         Release: {sortByRelease === '-1' ? 'New' : 'Old'}
                     </div>
                 </div>
-                <FilterForm year={year} genre={genre} rating={rating} sortByRelease={sortByRelease}/>
+                <FilterForm/>
             </div>
             <div className={s.children}>{children}</div>
         </div>

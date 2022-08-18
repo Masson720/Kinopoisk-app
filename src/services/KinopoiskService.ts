@@ -4,7 +4,7 @@ import {getYear} from "@/helpers/helpers";
 import {IFilmData} from "@/types/IFilmData";
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
 import {IReview} from "@/types/IReview";
-import {IBaseQuery} from "@/types/IBaseTypes";
+import {IBaseQuery, IFilters, IQuery} from "@/types/IBaseTypes";
 import {IPerson} from "@/types/IPerson";
 import {IFilmsData} from "@/types/IFilmsData";
 
@@ -28,11 +28,16 @@ export const kinopoiskAPI = createApi({
                 return `/movie?${query}&limit=${limit}&token=${API_TOKEN}`
             }
         }),
-        getFilmsBySearch: build.query({
-            query: ({filters}) => {
-                return `/movie?field=rating.kp&search=${filters.rating}&field=year&search=${filters.year}&sortType=${filters.sortByRelease}&isStrict=false&token=${API_TOKEN}`
+        getFilms: build.query<IFilmsData, IQuery>({
+            query: ({filters, page}) => {
+                return `/movie?${filters.genre}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=!null&field=name&search=1&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_TOKEN}`
             }
         }),
+        // getFilmsBySearch: build.query<IFilmsData, IFilters>({
+        //     query: ({filters, page}) => {
+        //         return `/movie?field=rating.kp&search=${filters.rating}&field=year&search=${filters.year}&sortType=${filters.sortByRelease}&page=${page}&isStrict=false&token=${API_TOKEN}`
+        //     }
+        // }),
         getPersonById: build.query<IPerson, string | Array<string> | undefined>({
             query: id => {
                 return `/person?search=${id}&field=id&token=${API_TOKEN}`
@@ -54,9 +59,10 @@ export const {
 
 export const {
     useGetTopQuery,
+    useGetFilmsQuery,
     useGetFilmByIdQuery,
     useGetFilmsByIdQuery,
-    useGetFilmsBySearchQuery,
+    // useGetFilmsBySearchQuery,
     useGetPersonByIdQuery,
     useGetReviewByIdQuery
 } = kinopoiskAPI;

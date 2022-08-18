@@ -5,7 +5,7 @@ import {genres} from "./genres";
 import {useActions} from "@/hooks/useActions";
 import {useEffect} from "react";
 
-export const FilterForm = ({year, genre, rating, sortByRelease}) => {
+export const FilterForm = () => {
     const {
         setYear,
         setRatings,
@@ -32,6 +32,9 @@ export const FilterForm = ({year, genre, rating, sortByRelease}) => {
         setGenre(genreValue);
     }
 
+    const onReset = () => {
+        resetFilters()
+    }
 
     return <>
         <div className={s.body}>
@@ -53,12 +56,9 @@ export const FilterForm = ({year, genre, rating, sortByRelease}) => {
             >
                 {({
                       values,
-                      errors,
-                      touched,
                       handleChange,
                       handleBlur,
                       handleSubmit,
-                      /* and other goodies */
                   }) => (
                     <form onSubmit={handleSubmit}>
                         <h1 className={s.title}>Rating</h1>
@@ -103,25 +103,25 @@ export const FilterForm = ({year, genre, rating, sortByRelease}) => {
                         <h1 className={s.title}>Release</h1>
                         <div className={s.label}>
                             <label className={s.label}>
-                                <Field className={s.radio} type="radio" name="sort" value="-1" />
+                                <Field className={s.radio} type="radio" name="sort" value="1" />
                                 Old
                             </label>
                             <label className={s.label}>
-                                <Field className={s.radio} type="radio" name="sort" value="1" />
+                                <Field className={s.radio} type="radio" name="sort" value="-1" />
                                 New
                             </label>
                         </div>
                         <h1 className={s.title}>Genres</h1>
                         <div className={s.inputBlock}>
                             <select className={s.selector} name='genres' onChange={handleChange} value={values.genres}>
-                                {genres.map(e => <option className={s.select} value={e.value}>
+                                {genres.map(e => <option className={s.select} key={e.value} value={e.label}>
                                     {e.label}
                                 </option>)}
                             </select>
                         </div>
                         <div className={s.buttons}>
-                            <button className={s.button} onClick={onSubmit}>Search</button>
-                            <button className={s.button} onClick={resetFilters}>Reset</button>
+                            <button className={s.button} type="submit">Search</button>
+                            <button className={s.button} onClick={onReset}>Reset</button>
                         </div>
                     </form>
                 )}
