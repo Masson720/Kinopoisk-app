@@ -15,8 +15,8 @@ export const ItemsPage: FC<ItemsPagePropsType> = ({data, actualPage, switcher, i
 
     return <>
         <div className={s.body}>
-            <Pagination actualPage={actualPage} pages={data?.pages} switcher={switcher} isLoading={isLoading}/>
             {data?.docs.map(e => <Item docs={e}/>)}
+            <Pagination actualPage={actualPage} pages={data?.pages} switcher={switcher} isLoading={isLoading}/>
         </div>
     </>
 }

@@ -1,9 +1,12 @@
-import {setYear, setRatings, setSortByRelease, setGenre, resetFilters} from '@/store/reducers/filterReducer';
+import {setYear, setRatings, setSortByRelease, setGenre, setType, resetFilters} from '@/store/reducers/filterReducer';
+import { setSearch } from './reducers/searchReducer';
 
 export {
     setYear,
     setRatings,
     setSortByRelease,
     setGenre,
-    resetFilters
+    setType,
+    resetFilters,
+    setSearch
 }

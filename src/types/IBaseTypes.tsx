@@ -3,11 +3,12 @@ export interface IFilters{
     rating: string
     sortByRelease: string
     genre: string
+    type: string
 }
 
 export interface IBaseQuery {
     type?: string;
-    query?: string;
+    search?: string;
     limit?: number | undefined;
     page?: number;
     id?: string | string[] | undefined;

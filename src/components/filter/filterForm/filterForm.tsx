@@ -20,7 +20,7 @@ export const FilterForm = () => {
         }
     }, [])
 
-    const onSubmit = (values) => {console.log(values)
+    const onSubmit = (values) => {
         const ratingValue = `${values.ratingDo}-${values.ratingFrom}`;
         const genreValue = values.genres;
         const yearValue = `${values.yearDo}-${values.yearFrom}`;

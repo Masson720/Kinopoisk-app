@@ -4,6 +4,7 @@ import {useMemo} from "react";
 import {createWrapper} from "next-redux-wrapper";
 import {loadReducer} from "./reducers/loadReducer";
 import {filtersReducer} from "./reducers/filterReducer";
+import {searchReducer} from "@/store/reducers/searchReducer";
 
 
 let store: AppStoreType
@@ -14,6 +15,7 @@ export const initialStore = (preloadedState = {}) => {
             reducer: {
                 loadReducer,
                 filtersReducer,
+                searchReducer,
                 [kinopoiskAPI.reducerPath]: kinopoiskAPI.reducer
             },
             preloadedState,

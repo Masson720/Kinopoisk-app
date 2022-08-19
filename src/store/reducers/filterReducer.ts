@@ -7,7 +7,8 @@ const initialState = {
         year: `1888-2022`,
         rating: '1-10',
         sortByRelease: '-1',
-        genre: ''
+        genre: '',
+        type: '1'
     }
 }
 
@@ -27,6 +28,9 @@ export const filtersSlice = createSlice({
         setGenre: (state, action) => {
             state.filters.genre = action.payload
         },
+        setType: (state, action) => {
+            state.filters.type = action.payload
+        },
         resetFilters: (state) => {
             state.filters = initialState.filters
         }
@@ -38,7 +42,8 @@ export const {
     setRatings,
     setSortByRelease,
     setGenre,
-    resetFilters
+    resetFilters,
+    setType
 } = filtersSlice.actions;
 
 export const filtersReducer = filtersSlice.reducer;

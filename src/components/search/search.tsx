@@ -1,22 +1,35 @@
 import s from './style.module.scss';
 import {SearchMenu} from "./searchMenu/searchMenu";
 import {useEffect, useState} from "react";
+import { useGetFilmsBySearchQuery } from '@/services/KinopoiskService';
+import {useActions} from "@/hooks/useActions";
+import {useTypedSelector} from "@/hooks/selector";
 
 export const Search = () => {
+    const {setSearch} = useActions()
+    const {search} = useTypedSelector(state => state.searchReducer);
+
     const [menuStatus, setMenuStatus] = useState(false);
-    const [value, setValue] = useState('');
+
+    const {data} = useGetFilmsBySearchQuery({search, limit: 4, type: '1'});
+
+
+    useEffect(() => {
+        console.log(data)
+    },[data])
 
     useEffect(()=> {
-        if(value !!= ''){
+        if(search !!= ''){
             setMenuStatus(true);
         }else {
             setMenuStatus(false);
         }
-    }, [value])
+    }, [search]);
+
 
     const submit = (e) => {
         const value = e.target.value;
-        setValue(value)
+        setSearch(value)
     }
 
     return <>

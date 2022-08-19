@@ -23,21 +23,21 @@ export const kinopoiskAPI = createApi({
                 return `/movie?search=${id}&field=id&token=${API_TOKEN}`
             }
         }),
-        getFilmsById: build.query<IFilmsData, IBaseQuery>({
-            query: ({query, limit}) => {
-                return `/movie?${query}&limit=${limit}&token=${API_TOKEN}`
+        getFilmsById: build.query<IFilmsData, IQuery>({
+            query: ({filters, limit}) => {
+                return `/movie?${filters}&limit=${limit}&token=${API_TOKEN}`
             }
         }),
         getFilms: build.query<IFilmsData, IQuery>({
             query: ({filters, page}) => {
-                return `/movie?${filters.genre}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=!null&field=name&search=1&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_TOKEN}`
+                return `/movie?${filters.genre}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=!null&field=name&search=${filters.type}&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${API_TOKEN}`
             }
         }),
-        // getFilmsBySearch: build.query<IFilmsData, IFilters>({
-        //     query: ({filters, page}) => {
-        //         return `/movie?field=rating.kp&search=${filters.rating}&field=year&search=${filters.year}&sortType=${filters.sortByRelease}&page=${page}&isStrict=false&token=${API_TOKEN}`
-        //     }
-        // }),
+        getFilmsBySearch: build.query<IFilmsData, IBaseQuery>({
+            query: ({search, limit, type}) => {
+                return `/movie?search=${search}&field=name&limit=${limit}&sortField=year&sortType=-1&field=typeNumber&search=${type}&isStrict=false&token=${API_TOKEN}`
+            }
+        }),
         getPersonById: build.query<IPerson, string | Array<string> | undefined>({
             query: id => {
                 return `/person?search=${id}&field=id&token=${API_TOKEN}`
@@ -62,7 +62,7 @@ export const {
     useGetFilmsQuery,
     useGetFilmByIdQuery,
     useGetFilmsByIdQuery,
-    // useGetFilmsBySearchQuery,
+    useGetFilmsBySearchQuery,
     useGetPersonByIdQuery,
     useGetReviewByIdQuery
 } = kinopoiskAPI;
