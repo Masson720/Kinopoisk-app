@@ -9,8 +9,7 @@ import {SwiperSlide} from "swiper/react";
 export const Home = () => {
     const {filmsLimit} = useTypedSelector(state => state.loadReducer)
     const {data, isSuccess} = useGetTopQuery(filmsLimit);
-    const {docs, total, limit, page, pages} = data;
-    console.log(docs)
+    const {docs} = data;
     return <>
         <div className={s.ad}>
             <div className={s.title}>Доктор Стрэндж</div>
@@ -21,7 +20,7 @@ export const Home = () => {
         </div>
         <div className={s.topBlock}>
             <Slider title={'New Film'} count={docs.length}>
-                {docs.map(e =>
+                {docs?.map(e =>
                     <SwiperSlide>
                         <Item key={e.id}
                         name={e.name}

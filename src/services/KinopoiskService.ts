@@ -29,8 +29,8 @@ export const kinopoiskAPI = createApi({
             }
         }),
         getFilms: build.query<IFilmsData, IQuery>({
-            query: ({filters, page}) => {
-                return `/movie?${filters.genre}&search=${filters.year}&field=year&search=${filters.rating}&field=rating.kp&search=${filters.type}&field=typeNumber&sortField=year&sortType=${filters.sortByRelease}&page=${page}&isStrict=false&token=${API_TOKEN}`
+            query: ({filters, page, search}) => {
+                return `/movie?${filters.genre}${search}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=${filters.type}&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=${filters.sortByRelease}&page=${page}&isStrict=false&token=${API_TOKEN}`
             }
         }),
         // getFilmByName: build.query<IMovies, IQuery>({

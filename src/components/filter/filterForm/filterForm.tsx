@@ -22,7 +22,7 @@ export const FilterForm = () => {
 
     const onSubmit = (values) => {
         const ratingValue = `${values.ratingDo}-${values.ratingFrom}`;
-        const genreValue = values.genres;
+        const genreValue = values.genres !== '' ? `search[]=${values.genres}&field[]=genres.name` : '';
         const yearValue = `${values.yearDo}-${values.yearFrom}`;
         const sortByReleaseValue = values.sort;
 
@@ -114,7 +114,7 @@ export const FilterForm = () => {
                         <h1 className={s.title}>Genres</h1>
                         <div className={s.inputBlock}>
                             <select className={s.selector} name='genres' onChange={handleChange} value={values.genres}>
-                                {genres.map(e => <option className={s.select} key={e.value} value={e.label}>
+                                {genres.map(e => <option className={s.select} key={e.value} value={e.value}>
                                     {e.label}
                                 </option>)}
                             </select>

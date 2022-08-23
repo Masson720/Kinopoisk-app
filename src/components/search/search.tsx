@@ -14,9 +14,6 @@ export const Search = () => {
     const {data} = useGetFilmsBySearchQuery({search, limit: 4, type: '1'});
 
 
-    useEffect(() => {
-        console.log(data)
-    },[data])
 
     useEffect(()=> {
         if(search !!= ''){
@@ -29,7 +26,7 @@ export const Search = () => {
 
     const submit = (e) => {
         const value = e.target.value;
-        setSearch(value)
+        setSearch(value);
     }
 
     return <>
@@ -37,7 +34,7 @@ export const Search = () => {
             <input className={s.input}
                    placeholder='Search...'
                    onBlur={()=> setMenuStatus(false)}
-                   onChange={e=> submit(e)}
+                   onChange={e => submit(e)}
             />
             {menuStatus ?
                 <SearchMenu/>

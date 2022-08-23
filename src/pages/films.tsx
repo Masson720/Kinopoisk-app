@@ -10,12 +10,13 @@ import {initialStore} from "@/store/store";
 
 const Films: NextPage = () =>{
     const {filters} = useTypedSelector(state => state.filtersReducer);
-    const [page, setPage] = useState(1)
-    const {data, isFetching} = useGetFilmsQuery({filters, page});
+    const {search} = useTypedSelector(state => state.searchReducer);
+    const [page, setPage] = useState(1);
+    const {data, isFetching} = useGetFilmsQuery({filters, page, search});
     return <>
         <Layout>
             <Filter page='Films'>
-                <ItemsPage data={data} actualPage={page} switcher={setPage} isLoading={isFetching}/>
+                <ItemsPage/>
             </Filter>
         </Layout>
     </>
