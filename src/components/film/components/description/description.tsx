@@ -3,6 +3,7 @@ import {InfoBlock} from "../infoBlock/InfoBlock";
 import {getColor, getFormatDate} from "@/helpers/helpers";
 import React, { Fragment } from "react";
 import {IFilmData} from "@/types/IFilmData";
+import {WatchFilmButton} from "@/components/buttons/watchFilmButton/watchFilmButton";
 
 type FilmPropsType = {
     data: IFilmData
@@ -12,7 +13,7 @@ type FilmPropsType = {
 export const Description: React.FC<FilmPropsType> = ({data}) => {
     const {
         ageRating, alternativeName, description, facts, poster, slogan,
-        videos, year, rating, premiere, persons, similarMovies, name, countries, genres, budget, movieLength, fees,
+        videos, year, rating, premiere, persons, similarMovies, name, countries, genres, budget, movieLength, fees, id
     } = data;
 
     const items = [
@@ -48,7 +49,10 @@ export const Description: React.FC<FilmPropsType> = ({data}) => {
                     {rating.kp}
                 </div>
                 <img className={s.poster} src={poster.url}/>
-
+                <div className={s.buttons}>
+                    <WatchFilmButton id={id}/>
+                    <WatchFilmButton id={id}/>
+                </div>
             </div>
 
             <div className={s.info}>

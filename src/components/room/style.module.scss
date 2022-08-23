@@ -1,0 +1,44 @@
+.body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.player {
+  display: flex;
+  width: 75vw;
+  height: 100vh;
+  background: #000000;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.header {
+  width: 75vw;
+  height: 5vh;
+  background: #0c0a0a;
+  display: flex;
+  align-items: center;
+}
+
+.backButton {
+  width: 50px;
+  height: 43px;
+  background: none;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.video {
+  width: 75vw;
+  height: 75vh;
+  background: #343131;
+}
+
+.chat {
+  display: flex;
+  width: 25vw;
+  height: 100vh;
+  background: #3e6dfa;
+}

@@ -4,7 +4,7 @@ import {GetServerSideProps} from "next";
 import {initialStore} from "@/store/store";
 import {getPersonById} from "@/services/KinopoiskService";
 
-export default function() {
+const Name = () => {
     return <>
         <Layout>
             <Person/>
@@ -22,3 +22,5 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         }
     }
 }
+
+export default Name;
