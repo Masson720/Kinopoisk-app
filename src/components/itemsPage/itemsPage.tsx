@@ -13,6 +13,7 @@ type ItemsPagePropsType = {
 
 export const ItemsPage: FC<ItemsPagePropsType> = ({data, actualPage, switcher, isLoading}) => {
 
+
     return <>
         <div className={s.body}>
             {data?.docs.map(e => <Item docs={e}/>)}

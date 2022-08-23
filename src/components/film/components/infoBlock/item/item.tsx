@@ -7,7 +7,7 @@ export const Item = ({name, id, poster, description =  null}) => {
     return <>
         <div className={s.body}>
             <li className={s.link}>
-                <Link href={`/person/${id}`}>
+                <Link href={`/name/${id}`}>
                     <a>
                         <Image className={s.poster}
                                src={poster}

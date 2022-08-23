@@ -1,6 +1,6 @@
 import s from './style.module.scss';
 import {InfoBlock} from "../infoBlock/InfoBlock";
-import {getColor} from "@/helpers/helpers";
+import {getColor, getFormatDate} from "@/helpers/helpers";
 import React, { Fragment } from "react";
 import {IFilmData} from "@/types/IFilmData";
 
@@ -20,11 +20,11 @@ export const Description: React.FC<FilmPropsType> = ({data}) => {
         {meaning: 'Genre', value: genres?.map((el,id) => <Fragment key={id}>{id ? ', ' : ''}{el.name}</Fragment>), condition: genres?.length},
         {meaning: 'Slogan', value: slogan, condition: slogan},
         {meaning: 'Budget', value: `${budget?.value} ${budget?.currency}`, condition: budget?.value},
-        {meaning: 'Age', value: `${ageRating} +`, condition: ageRating},
+        {meaning: 'Age', value: <span className={s.pg}>{`${ageRating} +`}</span>, condition: ageRating},
         {meaning: 'Timing', value: `${movieLength} min`, condition: movieLength},
         {meaning: 'US box office', value: `${fees?.usa?.value} ${fees?.usa?.currency}`, condition: fees?.usa?.value},
         {meaning: 'World box office', value: `${fees?.world?.value} ${fees?.world?.currency}`, condition: fees?.world?.value},
-        {meaning: 'World Premiere', value: premiere?.world, condition: premiere?.world}
+        {meaning: 'World Premiere', value: getFormatDate(premiere?.world), condition: premiere?.world}
     ]
 
     const listGen = () => {

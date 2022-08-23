@@ -37,3 +37,8 @@ export const getPath = (p: string) => {
             return 'film';
     }
 }
+
+export const getFormatDate = (date: string) => {
+    let dateItem = new Date(date)
+    return dateItem.toLocaleDateString()
+}
