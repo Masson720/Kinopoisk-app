@@ -2,6 +2,7 @@ import {useRouter} from "next/router";
 import {useGetFilmByIdQuery} from '@/services/KinopoiskService';
 import s from './style.module.scss';
 import {useEffect} from "react";
+import Link from "next/link";
 
 export const Room = () => {
     const {query: {id}} = useRouter();
@@ -22,12 +23,12 @@ export const Room = () => {
         <div className={s.body}>
             <div className={s.player}>
                 <div className={s.header}>
-                    <button className={s.backButton}>{'<'}</button>
+                    <Link href={`/film/${id}`}>
+                        <button className={s.backButton}>{'<'}</button>
+                    </Link>
+                    <h1 className={s.title}>{data?.name}</h1>
                 </div>
                 <div className={s.video} data-kinopoisk={id} id="kinobd" data-resize="1" data-bg="#000"></div>
-            </div>
-            <div className={s.chat}>
-                hello
             </div>
         </div>
     </>

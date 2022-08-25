@@ -6,7 +6,7 @@
 
 .player {
   display: flex;
-  width: 75vw;
+  width: 100vw;
   height: 100vh;
   background: #000000;
   justify-content: center;
@@ -14,31 +14,31 @@
 }
 
 .header {
-  width: 75vw;
-  height: 5vh;
+  width: 100vw;
+  height: 7vh;
   background: #0c0a0a;
   display: flex;
   align-items: center;
 }
 
+.title {
+  color: white;
+  font-size: 15px;
+  font-weight: 100;
+}
+
 .backButton {
-  width: 50px;
+  width: 80px;
   height: 43px;
   background: none;
   color: white;
   font-size: 30px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .video {
-  width: 75vw;
-  height: 75vh;
+  width: 100vw;
+  height: 85vh;
   background: #343131;
-}
-
-.chat {
-  display: flex;
-  width: 25vw;
-  height: 100vh;
-  background: #3e6dfa;
 }

@@ -7,18 +7,13 @@ import {useTypedSelector} from "@/hooks/selector";
 import {useGetFilmsQuery} from "@/services/KinopoiskService";
 
 
-export const ItemsPage: FC = () => {
-    const {filters} = useTypedSelector(state => state.filtersReducer);
-    const {search} = useTypedSelector(state => state.searchReducer);
-    const [page, setPage] = useState(1);
 
-    let searchString = search !== '' ? `search[]=${search}&field[]=name` : '';
-    const {data, isFetching} = useGetFilmsQuery({filters, page, search: searchString});
+export const ItemsPage: FC<any> = ({docs, page, pages, switcher, isFetching}) => {
 
     return <>
         <div className={s.body}>
-            {data?.docs.map(e => <Item docs={e}/>)}
-            <Pagination actualPage={page} pages={data?.pages} switcher={setPage} isLoading={isFetching}/>
+            {docs?.map(e => <Item docs={e}/>)}
+            <Pagination actualPage={page} pages={pages} switcher={switcher} isLoading={isFetching}/>
         </div>
     </>
 }

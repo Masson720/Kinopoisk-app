@@ -3,10 +3,16 @@
   height: 34px;
   background: #014989;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   border-radius: 17px;
   border: none;
   box-shadow: 3px 3px 10px 1px #b8b7b7;
   cursor: pointer;
+  transition-property: background, color;
+  transition-duration: .3s;
+  &:hover {
+    background: #ffffff;
+    color: #014989;
+  }
 }

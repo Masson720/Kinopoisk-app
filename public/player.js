@@ -366,8 +366,10 @@ function kbp(self) {
                         j++;
                         option.innerText = j + '✨ ' + language.torrent.toUpperCase();
                     } else if (key === 'vk') {
-                        j++;
-                        option.innerText = j + '✨ ' + language.vk.toUpperCase();
+                        if(language.vk){
+                            j++;
+                            option.innerText = j + '✨ ' + language.vk.toUpperCase();
+                        }
                     } else if (key === 'nf') {
                         j++;
                         option.innerText = j + '✨ ' + language.nf.toUpperCase();

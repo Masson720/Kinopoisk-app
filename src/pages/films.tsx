@@ -12,11 +12,18 @@ const Films: NextPage = () =>{
     const {filters} = useTypedSelector(state => state.filtersReducer);
     const {search} = useTypedSelector(state => state.searchReducer);
     const [page, setPage] = useState(1);
-    const {data, isFetching} = useGetFilmsQuery({filters, page, search});
+
+    let searchString = search !== '' ? `search[]=${search}&field[]=name` : '';
+    const {data, isFetching} = useGetFilmsQuery({filters, page, search: searchString});
+
     return <>
         <Layout>
             <Filter page='Films'>
-                <ItemsPage/>
+                <ItemsPage docs={data?.docs}
+                           pages={data?.pages}
+                           page={page}
+                           switcher={setPage}
+                           isFetching={isFetching}/>
             </Filter>
         </Layout>
     </>

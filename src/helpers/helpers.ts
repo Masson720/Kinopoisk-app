@@ -1,3 +1,5 @@
+import {API_TOKENS} from "@/constants/api";
+
 export const getYear = () => {
     return new Date().getFullYear();
 }
@@ -41,4 +43,8 @@ export const getPath = (p: string) => {
 export const getFormatDate = (date: string) => {
     let dateItem = new Date(date)
     return dateItem.toLocaleDateString()
+}
+
+export const getToken = () => {
+    return API_TOKENS[Math.floor(Math.random() * 3)]
 }
