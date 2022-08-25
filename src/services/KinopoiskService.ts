@@ -32,13 +32,14 @@ export const kinopoiskAPI = createApi({
                 return `/movie?${filters.genre}${search}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=${filters.type}&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=${filters.sortByRelease}&page=${page}&isStrict=false&token=${getToken()}`
             }
         }),
-        // getFilmByName: build.query<IMovies, IQuery>({
-        //     query: ({filters, page, id}) =>
-        //         return `/movie?${filters.genre}&search=${id}&field=name&search=${filters.rating}&field=rating.kp&search=${filters.year}&field=year&sortField=year&sortType=${filters.sortByRelease}&page=${page}&isStrict=false&token=${API_KEY}`
-        // }),
         getFilmsBySearch: build.query<IFilmsData, IBaseQuery>({
             query: ({search, limit, type}) => {
                 return `/movie?search=${search}&field=name&limit=${limit}&sortField=year&sortType=-1&field=typeNumber&search=${type}&isStrict=false&token=${getToken()}`
+            }
+        }),
+        getFavourites: build.query<IFilmsData, IQuery>({
+            query: ({id, filters, page, search}) => {
+                return `/movie?${filters.genre}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=${filters.type}&field=typeNumber&${id}&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${getToken()}`
             }
         }),
         getPersonById: build.query<IPerson, string | Array<string> | undefined>({
@@ -69,5 +70,6 @@ export const {
     useGetFilmsByIdQuery,
     useGetFilmsBySearchQuery,
     useGetPersonByIdQuery,
-    useGetReviewByIdQuery
+    useGetReviewByIdQuery,
+    useGetFavouritesQuery
 } = kinopoiskAPI;

@@ -1,16 +1,16 @@
 .body {
   width: 120px;
-  height: 34px;
+  height: 40px;
   background: #014989;
   color: #ffffff;
   font-size: 16px;
   font-weight: bold;
-  border-radius: 17px;
+  border-radius: 20px;
   border: none;
   box-shadow: 3px 3px 10px 1px #b8b7b7;
   cursor: pointer;
   transition-property: background, color;
-  transition-duration: .3s;
+  transition-duration: .2s;
   &:hover {
     background: #ffffff;
     color: #014989;

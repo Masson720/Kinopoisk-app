@@ -4,6 +4,7 @@ import {getColor, getFormatDate} from "@/helpers/helpers";
 import React, { Fragment } from "react";
 import {IFilmData} from "@/types/IFilmData";
 import {WatchFilmButton} from "@/components/buttons/watchFilmButton/watchFilmButton";
+import {FavouriteButton} from "@/components/buttons/favouriteButton/favouriteButton";
 
 type FilmPropsType = {
     data: IFilmData
@@ -51,7 +52,7 @@ export const Description: React.FC<FilmPropsType> = ({data}) => {
                 <img className={s.poster} src={poster.url}/>
                 <div className={s.buttons}>
                     <WatchFilmButton id={id}/>
-                    <WatchFilmButton id={id}/>
+                    <FavouriteButton id={id}/>
                 </div>
             </div>
 
