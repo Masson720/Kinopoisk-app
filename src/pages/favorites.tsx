@@ -14,8 +14,6 @@ const Favorites = () => {
     const [page, setPage] = useState(1);
     const id = favourites.map((e) => `search=${e}&field=id`).join('&');
     const {data, isFetching} = useGetFavouritesQuery({id, filters, page, search});
-    console.log(id)
-
 
     return <>
         <Layout>

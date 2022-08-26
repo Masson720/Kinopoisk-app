@@ -2,7 +2,7 @@
   width: 120px;
   height: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: end;
 }
 
 .body {
@@ -16,7 +16,7 @@
   border: none;
   box-shadow: 3px 3px 10px 1px #b8b7b7;
   cursor: pointer;
-  transition-property: background, color;
+  transition-property: background, color, width, height;
   transition-duration: .2s;
   &:hover {
     background: #ffffff;
