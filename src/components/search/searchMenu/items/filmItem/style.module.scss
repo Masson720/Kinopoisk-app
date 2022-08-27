@@ -4,38 +4,38 @@
   height: 90px;
   margin: 0 auto 10px;
   display: flex;
+}
 
-
-  .poster {
-    width: 52px;
-    height: 75px;
-    margin: 8px;
-  }
-
+.poster {
+  width: 52px;
+  height: 75px;
+  margin: 8px;
 }
 
 .info {
   width: 200px;
   height: 100px;
   padding: 8px;
-
-  .title {
-    font-size: 17px;
-  }
-
-  .rating {
-    font-size: 10px;
-    font-weight: bold;
-    color: #01aa01;
-  }
-
-  .engTitle {
-    font-size: 10px;
-  }
-
-  .year {
-    font-size: 10px;
-    font-weight: bold;
-  }
 }
 
+.title {
+  font-size: 15px;
+}
+
+.rating {
+  font-size: 10px;
+  font-weight: bold;
+  color: #01aa01;
+}
+
+.description {
+  font-size: 10px;
+  width: 270px;
+  height: 18px;
+  overflow: hidden;
+}
+
+.year {
+  font-size: 10px;
+  font-weight: bold;
+}

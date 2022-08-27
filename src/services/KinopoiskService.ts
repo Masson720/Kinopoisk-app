@@ -32,11 +32,6 @@ export const kinopoiskAPI = createApi({
                 return `/movie?${filters.genre}${search}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=${filters.type}&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=${filters.sortByRelease}&page=${page}&isStrict=false&token=${getToken()}`
             }
         }),
-        getFilmsBySearch: build.query<IFilmsData, IBaseQuery>({
-            query: ({search, limit, type}) => {
-                return `/movie?search=${search}&field=name&limit=${limit}&sortField=year&sortType=-1&field=typeNumber&search=${type}&isStrict=false&token=${getToken()}`
-            }
-        }),
         getFavourites: build.query<IFilmsData, IQuery>({
             query: ({id, filters, page, search}) => {
                 return `/movie?${filters.genre}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=${filters.type}&field=typeNumber&${id}&sortField=year&sortType=${filters.sortByRelease}&limit=10&page=${page}&token=${getToken()}`
@@ -68,7 +63,6 @@ export const {
     useGetFilmsQuery,
     useGetFilmByIdQuery,
     useGetFilmsByIdQuery,
-    useGetFilmsBySearchQuery,
     useGetPersonByIdQuery,
     useGetReviewByIdQuery,
     useGetFavouritesQuery

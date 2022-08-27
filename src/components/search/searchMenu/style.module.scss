@@ -5,28 +5,44 @@
   background: #ffffff;
   margin-top: 10px;
   border-radius: 7px;
-  box-shadow: 3px 0px 12px 4px grey;
+  box-shadow: 3px 0 12px 4px grey;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: auto;
+}
 
-  .searchResults {
-    margin: 10px 0px;
-    height: 130px;
-    border-bottom: 1px solid #e2e2e2;
-  }
+.typeSwitcher {
+  width: 350px;
+  display: flex;
+  margin: 15px 0;
+  justify-content: space-around;
+}
 
-  .movies {
-    margin: 10px 0px;
-    height: 330px;
-    border-bottom: 1px solid #e2e2e2;
-  }
-
-  .persons {
-    margin: 10px 0px;
-    height: 330px;
+.typeButton {
+  width: 80px;
+  height: 30px;
+  cursor: pointer;
+  background: white;
+  border: none;
+  box-shadow: 3px 3px 10px 1px #b8b7b7;
+  border-radius: 3px;
+  color: #014989;
+  font-size: 14px;
+  font-weight: bold;
+  transition-property: color, background-color;
+  transition-duration: .3s;
+  &:hover {
+    color: white;
+    background: #014989;
   }
 }
 
-.searchTitle {
-  font-size: 12px;
-  color: #a3a3a3;
-  margin: 15px;
+.active {
+  color: white;
+  background: #000000;
+}
+
+.items {
+  width: 350px;
 }

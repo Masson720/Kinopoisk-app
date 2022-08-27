@@ -21,7 +21,7 @@ interface IExternalId {
     imdb?: string
 }
 
-interface IPoster {
+export interface IPoster {
     url: string
     previewUrl: string
 }

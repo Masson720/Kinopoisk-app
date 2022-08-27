@@ -33,7 +33,7 @@ export const Search = () => {
                    value={search}
                    onFocus={() => setVisible(true)}
             />
-            {activeMenu && <SearchMenu/>}
+            {activeMenu && <SearchMenu search={search}/>}
         </div>
     </>
 }
