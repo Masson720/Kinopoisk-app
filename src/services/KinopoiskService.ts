@@ -3,7 +3,7 @@ import {getToken, getYear} from "@/helpers/helpers";
 import {IFilmData} from "@/types/IFilmData";
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
 import {IReview} from "@/types/IReview";
-import {IBaseQuery, IFilters, IQuery} from "@/types/IBaseTypes";
+import {IBaseQuery, IQuery} from "@/types/IBaseTypes";
 import {IPerson} from "@/types/IPerson";
 import {IFilmsData} from "@/types/IFilmsData";
 
@@ -42,6 +42,12 @@ export const kinopoiskAPI = createApi({
                 return `/person?search=${id}&field=id&token=${getToken()}`
             }
         }),
+        getPersonsBySearch: build.query<any, any>({
+            query: ({search, page}) => {
+                return `/person?search[]=${search}&field[]=name&limit=20&page=${page}&isStrict=false&token=${getToken()}`
+            }
+        }),
+
         getReviewById: build.query<IReview, IBaseQuery>({
             query: ({id, limit}) => {
                 return `review?search=${id}&field=movieId&limit=${limit}&token=${getToken()}`
@@ -64,6 +70,7 @@ export const {
     useGetFilmByIdQuery,
     useGetFilmsByIdQuery,
     useGetPersonByIdQuery,
+    useGetPersonsBySearchQuery,
     useGetReviewByIdQuery,
     useGetFavouritesQuery
 } = kinopoiskAPI;

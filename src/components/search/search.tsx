@@ -1,6 +1,5 @@
 import s from './style.module.scss';
 import {SearchMenu} from "./searchMenu/searchMenu";
-import { useGetFilmsBySearchQuery } from '@/services/KinopoiskService';
 import {useActions} from "@/hooks/useActions";
 import {useTypedSelector} from "@/hooks/selector";
 import {useEffect, useRef} from "react";
