@@ -5,6 +5,7 @@ import classNames from "classnames";
 import { useGetFilmsQuery } from '@/services/KinopoiskService';
 import {FilmItem} from "@/components/search/searchMenu/items/filmItem/filmItem";
 import {FC} from "react";
+import { Loader } from '@/components/UI/loader/loader';
 
 type SearchMenuPropsType = {
     search: string
@@ -14,7 +15,7 @@ export const SearchMenu: FC<SearchMenuPropsType> = ({search}) => {
     const {setType} = useActions();
     const {filters} = useTypedSelector(state => state.filtersReducer);
     let searchString = search !== '' ? `search[]=${search}&field[]=name` : '';
-    const {data} = useGetFilmsQuery({filters, search: searchString});
+    const {data, isSuccess} = useGetFilmsQuery({filters, search: searchString});
     const {docs} = {...data};
 
     const buttonItems = [
@@ -35,6 +36,7 @@ export const SearchMenu: FC<SearchMenuPropsType> = ({search}) => {
                     </button>)}
             </div>
             <div className={s.items}>
+                {!isSuccess && <Loader className={s.loader}/>}
                 {docs?.map((e) =>
                     <FilmItem poster={e.poster}
                               rating={e.rating}

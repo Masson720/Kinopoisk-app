@@ -13,7 +13,7 @@ const Favorites = () => {
     const {search} = useTypedSelector(state => state.searchReducer);
     const [page, setPage] = useState(1);
     const id = favourites.map((e) => `search=${e}&field=id`).join('&');
-    const {data, isFetching} = useGetFavouritesQuery({id, filters, page, search});
+    const {data, isFetching, isSuccess} = useGetFavouritesQuery({id, filters, page, search});
 
     return <>
         <Layout>
@@ -22,7 +22,9 @@ const Favorites = () => {
                            pages={data?.pages}
                            page={page}
                            switcher={setPage}
-                           isFetching={isFetching}/>
+                           isFetching={isFetching}
+                           isSuccess={isSuccess}
+                />
             </Filter>
         </Layout>
     </>

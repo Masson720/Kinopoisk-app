@@ -14,7 +14,7 @@ const Films: NextPage = () =>{
     const [page, setPage] = useState<number>(1);
 
     let searchString = search !== '' ? `search[]=${search}&field[]=name` : '';
-    const {data, isFetching} = useGetFilmsQuery({filters, page, search: searchString});
+    const {data, isFetching, isSuccess} = useGetFilmsQuery({filters, page, search: searchString});
 
     return <>
         <Layout>
@@ -23,7 +23,9 @@ const Films: NextPage = () =>{
                            pages={data?.pages}
                            page={page}
                            switcher={setPage}
-                           isFetching={isFetching}/>
+                           isFetching={isFetching}
+                           isSuccess={isSuccess}
+                />
             </Filter>
         </Layout>
     </>

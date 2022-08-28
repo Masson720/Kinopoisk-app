@@ -6,12 +6,13 @@ type PaginationPropsType = {
     pages: number
     switcher: (e: any) => void
     isLoading: boolean
+    isSuccess: boolean
 }
 
-export const Pagination: FC<PaginationPropsType> = ({actualPage, pages, switcher, isLoading}) => {
+export const Pagination: FC<PaginationPropsType> = ({actualPage, pages, switcher, isLoading, isSuccess}) => {
 
     return <>
-        {pages > 1?
+        {pages > 1 && isSuccess ?
             <div className={s.body}>
             <button className={s.button}
                     onClick={() => switcher(1)}
