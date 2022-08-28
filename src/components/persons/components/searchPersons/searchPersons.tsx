@@ -1,4 +1,3 @@
-import { useGetPersonsBySearchQuery } from '@/services/KinopoiskService';
 import s from './style.module.scss';
 import {useState} from "react";
 
@@ -10,6 +9,7 @@ export const SearchPersons = ({submit}) => {
             <h1 className={s.title}>Search persons</h1>
             <input className={s.searchInput}
                    type="text"
+                   placeholder='Search persons'
                    value={search}
                    onChange={(e) => setSearch(e.target.value)}
             />

@@ -11,7 +11,7 @@ import {initialStore} from "@/store/store";
 const Films: NextPage = () =>{
     const {filters} = useTypedSelector(state => state.filtersReducer);
     const {search} = useTypedSelector(state => state.searchReducer);
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState<number>(1);
 
     let searchString = search !== '' ? `search[]=${search}&field[]=name` : '';
     const {data, isFetching} = useGetFilmsQuery({filters, page, search: searchString});

@@ -1,6 +1,39 @@
 .body {
-  width: 350px;
-  height: 300px;
-  background: #3e6dfa;
-  margin: 50px 0;
+  width: 870px;
+  height: 180px;
+  margin: 0 15px;
+  display: flex;
+  border-bottom: 1px solid gainsboro;
+  border-radius: 2px;
+  cursor: pointer;
+  transition-property: background;
+  transition-duration: .3s;
+  &:hover {
+    box-shadow: 1px 1px 10px 5px #eeeeee;
+  }
+}
+
+.title {
+  font-size: 18px;
+}
+
+.engTitle {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.photo {
+  width: 100px;
+  height: 147px;
+  margin: 15px;
+  border-radius: 3px;
+}
+
+.info {
+  margin: 15px;
+  height: 100px;
+}
+
+.age {
+  font-size: 12px;
 }

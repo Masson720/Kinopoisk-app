@@ -6,6 +6,7 @@ import {IReview} from "@/types/IReview";
 import {IBaseQuery, IQuery} from "@/types/IBaseTypes";
 import {IPerson} from "@/types/IPerson";
 import {IFilmsData} from "@/types/IFilmsData";
+import {IPersons} from "@/types/IPersons";
 
 
 export const kinopoiskAPI = createApi({
@@ -42,12 +43,12 @@ export const kinopoiskAPI = createApi({
                 return `/person?search=${id}&field=id&token=${getToken()}`
             }
         }),
-        getPersonsBySearch: build.query<any, any>({
+        getPersonsBySearch: build.query<IPersons, IBaseQuery>({
             query: ({search, page}) => {
-                return `/person?search[]=${search}&field[]=name&limit=20&page=${page}&isStrict=false&token=${getToken()}`
+                return `/person?search[]=${search}&field[]=name&limit=20&page=${page}&sortField=photo&isStrict=false&token=${getToken()}`
+
             }
         }),
-
         getReviewById: build.query<IReview, IBaseQuery>({
             query: ({id, limit}) => {
                 return `review?search=${id}&field=movieId&limit=${limit}&token=${getToken()}`

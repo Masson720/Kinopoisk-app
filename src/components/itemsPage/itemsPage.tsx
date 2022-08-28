@@ -1,10 +1,7 @@
 import s from './style.module.scss';
 import {Item} from "./components/item";
-import {IFilmsData} from "@/types/IFilmsData";
-import {FC, useState} from "react";
+import {FC} from "react";
 import {Pagination} from "@/UI/pagination/pagination";
-import {useTypedSelector} from "@/hooks/selector";
-import {useGetFilmsQuery} from "@/services/KinopoiskService";
 
 
 

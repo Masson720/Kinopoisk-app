@@ -1,7 +1,14 @@
 import s from './style.module.scss';
+import {FC} from "react";
 
-export const Pagination = ({actualPage, pages, switcher, isLoading}) => {
-    console.log(actualPage === 1 && !!isLoading)
+type PaginationPropsType = {
+    actualPage: number
+    pages: number
+    switcher: (e: any) => void
+    isLoading: boolean
+}
+
+export const Pagination: FC<PaginationPropsType> = ({actualPage, pages, switcher, isLoading}) => {
 
     return <>
         {pages > 1?

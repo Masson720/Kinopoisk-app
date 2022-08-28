@@ -1,23 +1,33 @@
 .body {
   width: 450px;
-  height: 150px;
+  height: 300px;
+  padding: 70px 0;
   margin: 0 auto;
 }
 
 .title {
   font-size: 35px;
-  margin: 0 auto;
+  margin: 10px 85px;
   width: 350px;
 }
 
 .searchInput {
-  width: 300px;
-  height: 30px;
+  width: 350px;
+  height: 40px;
   margin-top: 15px;
+  padding: 7px;
+  border-radius: 7px 0 0 7px;
+  border: 1px solid grey;
+  font-size: 16px;
 }
 
 .searchButton {
-  width: 70px;
-  height: 30px;
-
+  width: 100px;
+  height: 40px;
+  border-radius: 0 7px 7px 0;
+  border: 1px solid grey;
+  background: #014989;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
 }

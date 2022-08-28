@@ -25,6 +25,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/name/[id]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/name/[id].js"
+    ],
     "/persons": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
